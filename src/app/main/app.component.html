@@ -1,0 +1,112 @@
+<!--<div *ngIf="!isHeader">-->
+<div>
+<nav class="navbar navbar-fixed-top navbar-light bg-faded">
+<div class="container-fluid">
+<a class="navbar-brand" routerLink="/home">Goaf</a>
+ 
+  
+ <button class="navbar-toggler hidden-sm-up pull-xs-right" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2" aria-controls="exCollapsingNavbar2" aria-expanded="false" aria-label="Toggle navigation">
+    &#9776;
+  </button>
+  <button class="navbar-toggler hidden-sm-up pull-xs-right" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2" aria-controls="exCollapsingNavbar2" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="material-icons">search</i>
+  </button>
+ 
+  
+  <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
+    
+     <div class="search">
+         <form name="searchForm">
+         <label for="searchstring"  aria-label="Search"> </label>
+          <input type="text" class="form-control input-sm" name="searchstring" id="searchstring" ng-model="searchstring" minlength="3" maxlength="64" minlength="3" placeholder="Search" required="" value="">
+
+          <span class="error"></span>
+           <button md-raised-button color="primary" class="btnn md-button"><i class="material-icons">search</i></button>
+          </form>
+     </div>
+  
+  <div class="pull-sm-right">
+  <ul class="nav navbar-nav account">
+      <span class="no-small-template">
+       <li class="nav-item active">
+        <button md-icon-button color="accent"  [md-menu-trigger-for]="menu">
+           <md-icon>add_circle_outline</md-icon>
+        </button>
+        <md-menu class="drop-universal" x-position="before" #menu="mdMenu">
+            <button md-menu-item>List a Business</button>
+            <button md-menu-item> Settings </button>
+            <button md-menu-item> Help </button>
+            <button md-menu-item disabled> Sign Out </button>
+            <md-list>
+               <md-list-item> Pepper </md-list-item>
+               <md-list-item> Salt </md-list-item>
+               <md-list-item> Paprika </md-list-item>
+            </md-list>
+        </md-menu>
+      </li>
+      </span>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/auth">log in </a>
+      </li>
+    <li class="nav-item">
+        <a class="nav-link" routerLink="/auth">sign up</a>
+      </li>
+      <!--<li class="nav-item">
+        <a class="nav-link" routerLink="/signup">OjObasi</a>
+      </li>
+      <li class="nav-item">
+         <a class="nav-link" routerLink="/assets"><img class="useravatar" src="./assets/images/default_avatar.png" alt="username"></a>
+      </li>-->
+    </ul>
+  
+  </div>
+  </div>
+</div>  
+</nav>
+ <div class="down-nav">
+  <div class="container-fluid">
+  <ul class="nav navbar-nav">
+    <li class="nav-item active">
+      <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Places</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">News Stories</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Jobs</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">People</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Music</a>
+    </li>
+    <div class="pull-sm-right">
+    <li class="nav-item">
+      <a class="nav-link" href="#">People</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Music</a>
+    </li>
+    </div>
+  </ul>
+  </div>
+</div>
+</div>
+<!--<ul>
+    <li><a (click)="setTitle( 'Good morning!' )">Good morning</a>.</li>
+    <li><a (click)="setTitle( 'Good afternoon!' )">Good afternoon</a>.</li>
+    <li><a (click)="setTitle( 'Good evening!' )">Good evening</a>.</li>
+  </ul>-->
+<router-outlet></router-outlet>
+<div>
+<nav class="navbar  navbar-light bg-faded">
+  <a class="navbar-brand" href="#">Fixed bottom</a>
+</nav>
+<span class="no-big-template app-action">
+ <button md-fab color="accent"><md-icon>check circle</md-icon></button>
+ </span>
+ </div>

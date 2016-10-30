@@ -1,0 +1,66 @@
+<div class="container-fluid">
+<main class="card auth">
+	<md-tab-group>
+	  <md-tab>
+	    <template md-tab-label><a (click)="setTitle( 'Sign up to Goaf!' )">SIGN UP</a></template>
+	    <template md-tab-content>
+	      <h1 class="section--header--t">Create Your user Account</h1>
+	      <p class="section--desc--t"> Your user account is portal to all service features such as, listing, blogging, job applications.
+	      </p>
+	      <form class="innertube">
+	      <md-input placeholder="Username*">
+	        <span md-prefix>
+	          <i class="material-icons app-input-icon">person</i>
+	          &nbsp;
+	        </span>
+	      </md-input>
+	      <md-input placeholder="Email Address*">
+	        <span md-prefix>
+	          <i class="material-icons app-input-icon">email</i>
+	          &nbsp;
+	        </span>
+	      </md-input>
+	      <md-input placeholder="Password*">
+	        <span md-prefix>
+	          <i class="material-icons app-input-icon">lock</i>
+	          &nbsp;
+	        </span>
+	      </md-input>
+	       <md-input placeholder="Confirm Password*">
+	        <span md-prefix>
+	          <i class="material-icons app-input-icon">lock</i>
+	          &nbsp;
+	        </span>
+	      </md-input>
+	       <button md-raised-button color="primary">Sign Up</button>
+	       <span>Sign up to a free and secured account!</span>
+	     </form>
+	    </template>
+	  </md-tab>
+	  <md-tab>
+	    <template md-tab-label><a (click)="setTitle( 'Login to Goaf!' )">SIGN IN</a></template>
+	    <template md-tab-content>
+	      <h1 class="section--header--t">Log In To Your Account</h1>
+	      <p class="section--desc--t"> Your user account is portal to all service features such as, listing, blogging, job applications.
+	      </p>
+	      <form class="innertube">
+	      <md-input placeholder="Email Address*">
+	        <span md-prefix>
+	          <i class="material-icons app-input-icon">email</i>
+	          &nbsp;
+	        </span>
+	      </md-input>
+	      <md-input placeholder="Password*">
+	        <span md-prefix>
+	          <i class="material-icons app-input-icon">lock</i>
+	          &nbsp;
+	        </span>
+	      </md-input>
+	       <button md-raised-button color="primary">Sign in</button>
+	       <span>Sign in to your user account!</span>
+	     </form>
+	    </template>
+	  </md-tab>
+	</md-tab-group>
+</main>
+</div>
