@@ -15,11 +15,13 @@ import { AuthComponent } from './auth/auth.component';
 
 // Must export the config
 export const firebaseConfig = {
-  apiKey: "AIzaSyCRNe7vMZ7B1OzcOpdBQO7ixxDyF8z3exs",
-  authDomain: "cving-c313e.firebaseapp.com",
-  databaseURL: "https://cving-c313e.firebaseio.com",
-  storageBucket: "cving-c313e.appspot.com",
-  messagingSenderId: "90494333962"
+
+  apiKey: "AIzaSyAOFWkm65uxEuHL7KXsdiOxARghf3AOP88",
+  authDomain: "goaf-fb832.firebaseapp.com",
+  databaseURL: "https://goaf-fb832.firebaseio.com",
+  storageBucket: "goaf-fb832.appspot.com",
+  messagingSenderId: "938771222972"
+  
 };
 
 @NgModule({
