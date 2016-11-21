@@ -31,12 +31,10 @@
 }
 .cardo {
     background: #ffffff;
-    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
-    -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
-    box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
-    display: block;
-    vertical-align: middle;
-    padding: 5px;
+    border: 1px solid;
+    border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+    border-radius: 3px;
+    padding:5px 10px;
 }
 
 .useravatar-main {
@@ -68,6 +66,11 @@
 }
 .st [md-button] {
 	border:1px solid #ccd;
+  padding: 10px;
+  padding-bottom: 5px;
+  width: 100%;
+  background: #fff;
+  
 }
 .icon-st-1, .icon-st-2, .icon-st-3 {
 	font-size: 2em;
@@ -106,6 +109,11 @@
    .row {padding-left:5px; padding-right:5px;}
    ._5pad{ padding: 5px; }
    ._10pad{ padding: 10px; }
+   .newsst {
+    position: fixed;
+    height: 100%;
+ 
+   }
 }
 
 ul.n-updates {
@@ -122,6 +130,25 @@ ul.n-updates li a {
   font-size: 1em !important;
   color: red;
 }
-.news md-card {
-  padding:5px !important;
+.xxlist md-card  {
+  padding:0px !important;
+  }
+.xxlist .list-group-item {
+  border-right: none;
+  border-left:none;
+}
+.xxlist .list-group-item:last-child {
+  border-bottom:none;
+}
+.xxlist .list-group-item.active {
+  background: #287bbc;
+  border-color: #1b5480;
+}
+.underlay {
+  background: #000;
+  padding-bottom: 10px;
+}
+.define {
+  font-family: 'Baloo Bhaina', cursive;
+  text-align: center;
 }

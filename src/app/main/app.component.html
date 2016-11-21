@@ -25,24 +25,7 @@
   
   <div class="float-xs-right">
   <ul class="nav navbar-nav account">
-      <span class="no-small-template">
-       <li class="nav-item active">
-        <button md-icon-button color="accent"  [md-menu-trigger-for]="menu">
-           <md-icon>add_circle_outline</md-icon>
-        </button>
-        <md-menu class="drop-universal" x-position="before" #menu="mdMenu">
-            <button md-menu-item>List a Business</button>
-            <button md-menu-item> Settings </button>
-            <button md-menu-item> Help </button>
-            <button md-menu-item disabled> Sign Out </button>
-            <md-list>
-               <md-list-item> Pepper </md-list-item>
-               <md-list-item> Salt </md-list-item>
-               <md-list-item> Paprika </md-list-item>
-            </md-list>
-        </md-menu>
-      </li>
-      </span>
+      
       <li class="nav-item">
         <a class="nav-link" routerLink="/auth">log in </a>
       </li>
@@ -100,11 +83,39 @@
     <li><a (click)="setTitle( 'Good evening!' )">Good evening</a>.</li>
   </ul>-->
 <router-outlet></router-outlet>
-<div>
-<nav class="navbar  navbar-light bg-faded">
-  <a class="navbar-brand" href="#">Fixed bottom</a>
-</nav>
+<footer>
+<a class="logo" href="#">Fixed bottom</a>
+<div class="countries">
+  Countries:
+  <a class="nav-link" routerLink="/auth">Nigeria</a>
+  <a class="nav-link" routerLink="/auth">Cameroon</a>
+  <a class="nav-link" routerLink="/auth">Togo</a>
+  <a class="nav-link" routerLink="/auth">Ghana</a>
+  <a class="nav-link" routerLink="/auth">Liberia</a>
+  <a class="nav-link" routerLink="/auth">Sierra leone</a>
+  <a class="nav-link" routerLink="/auth">Ivory Coast</a>
+  <a class="nav-link" routerLink="/auth">Angola</a>
+  <a class="nav-link" routerLink="/auth">Gabon</a>
+  <a class="nav-link" routerLink="/auth">Equatorial Guinea</a>
+  <a class="nav-link" routerLink="/auth">Kenya</a>
+  <a class="nav-link" routerLink="/auth">South Africa</a>
+</div>
+<div class="cities">
+  Cities:
+  <a class="nav-link" routerLink="/auth">Lagos</a>
+  <a class="nav-link" routerLink="/auth">Yaounde</a>
+  <a class="nav-link" routerLink="/auth">Accra</a>
+  <a class="nav-link" routerLink="/auth">Cape Town</a>
+  <a class="nav-link" routerLink="/auth">Freetown</a>
+  <a class="nav-link" routerLink="/auth">Nairobi</a>
+  <a class="nav-link" routerLink="/auth">Libreville</a>
+  <a class="nav-link" routerLink="/auth">Abuja</a>
+  <a class="nav-link" routerLink="/auth">Cape Town</a>
+  <a class="nav-link" routerLink="/auth">Douala</a>
+  <a class="nav-link" routerLink="/auth">Cairo</a>
+  <a class="nav-link" routerLink="/auth">Tripoli</a>
+</div>
 <span class="no-big-template app-action">
  <button md-fab color="accent"><md-icon>check circle</md-icon></button>
  </span>
- </div>
+</footer>

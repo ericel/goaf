@@ -1,9 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 /*@import '~@angular/material/core/theming/prebuilt/pink-bluegrey.css';*/
-
+@import url('https://fonts.googleapis.com/css?family=Baloo+Bhaina|Lora');
 body, html {
-	background: #ccd;
-	background: url('./assets/images/design/bg_2.png')
+	background: #e9ebee;
+    color: #1d2129;
+	/*background: url('./assets/images/design/bg_2.png');*/
 }
 body {
    color: #525c65;
@@ -16,13 +17,23 @@ a {
     text-decoration: none;
 }
 
+./* default .loading styles, .loading should be invisible, opacity: 0, z-index: -1 */
 .loading {
-	text-align: center;
-	color: #333;
-	margin-right: auto;
-	margin-left: auto;
-	font-style: italic;
-	font-size: 0.8em;
+    opacity: 0;
+    transition: opacity .8s ease-in-out;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: #000;
+    z-index: -1;
+    text-align: center;
+}
+/* .loading screen is visible when app is not bootstraped yet, .my-app is empty */
+app-root:empty + .loading {
+    opacity: 1;
+    z-index: 100;
 }
 @media screen and (max-width: 540px){
   
@@ -31,9 +42,16 @@ a {
 
 @media screen and (min-width: 540px){
   .container-fluid {
-    width:90%;
+    
     }
 }
+.loading h1{
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+ }
+
 .loading img{
 	display: block;
 	margin-right: auto;
