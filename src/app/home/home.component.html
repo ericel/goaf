@@ -34,9 +34,12 @@
 <div class="mg-10"></div>
 <div class="col-sm-12">
  <div class="cardo define">
+   <img src="./assets/images/design/list.jpg">
+   <div class="layout">
    <h1> Discover Africa</h1>
    <h2> Africa is not a country</h2>
    <h3>List a place for free, Share with the world for free</h3>
+   </div>
  </div>
  <div class="mg-10"></div>
  </div>
@@ -107,8 +110,18 @@
      
 </md-card>
   </div>
-</div>
-</div>
 
+</div>
+</div>
 </main>
+</div>
+<div class="place-map">
+ <sebm-google-map [latitude]="lat" [longitude]="lng">
+        <sebm-google-map-marker [latitude]="lat" [longitude]="lng"></sebm-google-map-marker>
+</sebm-google-map>
+<div class="place-map-over">
+  <h2>Your Next Great Destination!</h2>
+  <h3> Goaf Places</h3>
+
+</div>
 </div>

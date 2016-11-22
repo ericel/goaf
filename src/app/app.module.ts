@@ -7,6 +7,7 @@ import { routing, appRoutingProviders }  from './app-routing.module';
 
 import { AngularFireModule } from 'angularfire2';
 import { MaterialModule } from '@angular/material';
+import { AgmCoreModule } from 'angular2-google-maps/core';
 
 import { AppComponent } from './main/app.component';
 import { AssetsComponent } from './assets/assets.component';
@@ -29,7 +30,7 @@ export const firebaseConfig = {
     AppComponent,
     AssetsComponent,
     HomeComponent,
-    AuthComponent
+    AuthComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +38,10 @@ export const firebaseConfig = {
     HttpModule,
     MaterialModule.forRoot(),
     AngularFireModule.initializeApp(firebaseConfig),
-    routing
+    routing,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBqIrNb1DLsN6oP97ua3YLMJx5-gUueWJU'
+    })
   ],
   providers: [appRoutingProviders],
   bootstrap: [AppComponent]
