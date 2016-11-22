@@ -181,3 +181,16 @@ footer {
   color: #4A4A4A;
   font-size: 1.2em;
 }
+.blacker {
+  background: #000;
+  height: 150px;
+  color: #fff;
+}
+.blacker small {
+
+  color: #333;
+}
+
+.blacker .location span {
+  font-family: 'Baloo Bhaina', cursive;
+}
