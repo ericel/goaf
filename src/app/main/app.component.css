@@ -70,12 +70,32 @@
   width: 25px;
   border-radius: 4px;
 }
+.account li {
+  text-align: center;
+}
+.account li.mid {
+  margin-top:3px;
+  background: #287bbc;
+  border-color: #1b5480;
+  padding: 0em 1rem !important; 
+  border-radius: 4px;
+  box-shadow: inset 0 0 35px 5px #1b5480, inset 0 2px 1px 1px #1b5480, inset 0 -2px 1px 0 #1b5480;
+  color: #ccd;
 
+}
 .account a {
   font-size: 0.8em;
-  margin-top: 5px;
 }
 
+@media (max-width: 575px){
+.navbar-toggleable-xs .navbar-nav {
+  width: 250px;
+
+}
+.account li {
+  margin-bottom: 20px;
+}
+}
 /* Search Box */
 .search {
     width: 60%;
@@ -148,9 +168,7 @@
     padding-bottom: 30px !important;
     
 }
-.navbar-nav a {
-  border-top: 1px solid #ccd;
-}
+
 }
 /* End Search */
 /*template define */
