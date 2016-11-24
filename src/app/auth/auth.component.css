@@ -36,3 +36,23 @@ input:active, .ureact-text-input--text-input--10NET:focus {
     outline: none;
     border-color: #02b3e4;
 }
+
+.auth {
+    margin-top: 10px;
+}
+.auth-1 {
+    text-align: center;
+}
+.auth-1 .socialbuttons button{
+    display: block;
+    width: 300px;
+    margin-top: 10px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.auth-1 em {
+    display: block;
+    margin: 10px 0;
+    font-size: 2em;
+    font-family: 'Baloo Bhaina', cursive;
+}

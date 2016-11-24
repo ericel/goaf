@@ -19,9 +19,20 @@ export class AppComponent {
   items: FirebaseListObservable<any[]>;
   
   name: string;
-
-  constructor(private titleService: Title, af: AngularFire, private _r: Router) {
   
+  user = {};
+  constructor(private titleService: Title, public af: AngularFire, private _r: Router) {
+    this.af.auth.subscribe(user => {
+      if(user) {
+        // user logged in
+        this.user = user;
+        console.log(this.user);
+      }
+      else {
+        // user not logged in
+        this.user = {};
+      }
+    });
      this.name = 'Angular2'
 
      this._r.events.subscribe(event => {
@@ -52,6 +63,10 @@ export class AppComponent {
   public setTitle( newTitle: string) {
     this.titleService.setTitle( "newTitle");
   }
+ // Logout user
+ logout() {
+  this.af.auth.logout();
+ }
   /* constructor(private router: RouterModule){}
 
   routeIsActive(routePath: string) {

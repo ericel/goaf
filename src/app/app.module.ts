@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { routing, appRoutingProviders }  from './app-routing.module';
 
-import { AngularFireModule } from 'angularfire2';
+import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 import { MaterialModule } from '@angular/material';
 import { AgmCoreModule } from 'angular2-google-maps/core';
 
@@ -25,6 +25,11 @@ export const firebaseConfig = {
   
 };
 
+const myFirebaseAuthConfig = {
+  provider: AuthProviders.Google,
+  method: AuthMethods.Popup
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +42,7 @@ export const firebaseConfig = {
     FormsModule,
     HttpModule,
     MaterialModule.forRoot(),
-    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireModule.initializeApp(firebaseConfig, myFirebaseAuthConfig),
     routing,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBqIrNb1DLsN6oP97ua3YLMJx5-gUueWJU'

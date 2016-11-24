@@ -1,5 +1,17 @@
 <div class="container-fluid">
 <main class="card auth">
+    <div class="auth-1">
+        <h2>Sign in with :</h2>
+        <div class="socialbuttons">
+           <button md-button md-raised-button color="primary"><md-icon md-font-icon="android" aria-label="android"></md-icon> Facebook Account</button>
+
+           <button md-button md-raised-button color="accent" (click)="overrideLogin"><md-icon>google</md-icon> Google Account</button>
+
+           <em>OR</em>
+
+  			<a class="nav-link" routerLink="/auth">Log in with your Email</a>
+        </div>
+    </div>
 	<md-tab-group>
 	  <md-tab>
 	    <template md-tab-label><a (click)="setTitle( 'Sign up to Goaf!' )">SIGN UP</a></template>
