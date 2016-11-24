@@ -1,17 +1,23 @@
 <div class="container-fluid">
 <main class="card auth">
     <div class="auth-1">
-        <h2>Sign in with :</h2>
+        <h2>Goaf Accounts</h2>
+         <h1 class="section--header--t">Log In To Your Account</h1>
+	      <p class="section--desc--t"> Your user account is portal to all service features such as, listing, blogging, job applications.
+	      </p>
+
+	     <em>Sign in With</em>
         <div class="socialbuttons">
            <button md-button md-raised-button color="primary" (click)="login()"><md-icon md-font-icon="android" aria-label="android"></md-icon> Facebook Account</button>
-
+           	<em class="or">OR</em>
            <button md-button md-raised-button color="accent" (click)="overrideLogin()"><md-icon>google</md-icon> Google Account</button>
+          
+           <!--<em>OR</em>
 
-           <em>OR</em>
-
-  			<a class="nav-link" routerLink="/auth">Log in with your Email</a>
+  			<a class="nav-link" routerLink="/auth">Log in with your Email</a>-->
         </div>
     </div>
+    <!--
 	<md-tab-group>
 	  <md-tab>
 	    <template md-tab-label><a (click)="setTitle( 'Sign up to Goaf!' )">SIGN UP</a></template>
@@ -74,5 +80,6 @@
 	    </template>
 	  </md-tab>
 	</md-tab-group>
+	-->
 </main>
 </div>

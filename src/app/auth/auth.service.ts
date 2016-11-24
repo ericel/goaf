@@ -4,18 +4,24 @@ import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
 @Injectable()
 export class AuthService {
  user = {};
-  constructor(public af: AngularFire) {
+ isLoggedIn: boolean;
+  constructor(private af: AngularFire) {
   	this.af.auth.subscribe(user => {
       if(user) {
         // user logged in
         this.user = user;
+        this.isLoggedIn = true;
         console.log(this.user);
+    
       }
       else {
         // user not logged in
         this.user = {};
+        this.isLoggedIn = false;
       }
     });
+
+
    }
 
 login() {
@@ -30,6 +36,8 @@ overrideLogin() {
       provider: AuthProviders.Google
     });    
   }
+
+loggedIn(){ return this.isLoggedIn}
    // Logout user
  logout() {
   this.af.auth.logout();

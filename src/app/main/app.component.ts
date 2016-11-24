@@ -18,13 +18,19 @@ export class AppComponent {
   
   progress: number = 0;
   items: FirebaseListObservable<any[]>;
-  
-  name: string;
-  
+  isLoggedIn: boolean;
+ 
+
  
   constructor(private titleService: Title, private AuthService : AuthService, private _r: Router) {
     
-     this.name = 'Angular2'
+     
+    
+     if(this.AuthService.loggedIn){
+        this.isLoggedIn = true;
+        console.log('hehe');
+     }
+     
 
      this._r.events.subscribe(event => {
       if (event instanceof RoutesRecognized) {
