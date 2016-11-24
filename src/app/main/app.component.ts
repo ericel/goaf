@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import { Title }     from '@angular/platform-browser';
 import {ActivatedRoute, Router, Routes, RouterModule, RoutesRecognized, NavigationEnd} from '@angular/router';
+import { AuthService } from '../auth/auth.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -20,19 +21,9 @@ export class AppComponent {
   
   name: string;
   
-  user = {};
-  constructor(private titleService: Title, public af: AngularFire, private _r: Router) {
-    this.af.auth.subscribe(user => {
-      if(user) {
-        // user logged in
-        this.user = user;
-        console.log(this.user);
-      }
-      else {
-        // user not logged in
-        this.user = {};
-      }
-    });
+ 
+  constructor(private titleService: Title, private AuthService : AuthService, private _r: Router) {
+    
      this.name = 'Angular2'
 
      this._r.events.subscribe(event => {
@@ -51,7 +42,7 @@ export class AppComponent {
         }
       }
     });
-    this.items = af.database.list('items');
+   // this.items = af.database.list('items');
     // Update the value for the progress-bar on an interval.
     setInterval(() => {
       this.progress = (this.progress + Math.floor(Math.random() * 4) + 1) % 100;
@@ -63,10 +54,10 @@ export class AppComponent {
   public setTitle( newTitle: string) {
     this.titleService.setTitle( "newTitle");
   }
- // Logout user
+ 
  logout() {
-  this.af.auth.logout();
- }
+      this.AuthService.logout();
+  }
   /* constructor(private router: RouterModule){}
 
   routeIsActive(routePath: string) {

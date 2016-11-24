@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title }     from '@angular/platform-browser';
-import { AngularFire, AuthProviders } from 'angularfire2';
-import { Auth } from './auth.class';
+import { AuthService } from './auth.service';
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
@@ -9,7 +8,7 @@ import { Auth } from './auth.class';
 })
 export class AuthComponent implements OnInit {
    
-   constructor(private titleService: Title,public af: AngularFire) {
+   constructor(private titleService: Title, private AuthService : AuthService) {
    
    }
 
@@ -21,18 +20,11 @@ export class AuthComponent implements OnInit {
  public setTitle( newTitle: string) {
     this.titleService.setTitle(newTitle);
   }
-
- login() {
-  this.af.auth.login({
-    provider: AuthProviders.Google
-  });
+login(){
+  this.AuthService.login();
 }
-
- overrideLogin() {
-    this.af.auth.login({
-      provider: AuthProviders.Google
-    });    
-  }
-
+overrideLogin(){
+  this.AuthService.overrideLogin();
+}
 
 }

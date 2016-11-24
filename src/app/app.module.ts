@@ -13,7 +13,7 @@ import { AppComponent } from './main/app.component';
 import { AssetsComponent } from './assets/assets.component';
 import { HomeComponent } from './home/home.component';
 import { AuthComponent } from './auth/auth.component';
-
+import { AuthService } from './auth/auth.service';
 // Must export the config
 export const firebaseConfig = {
 
@@ -48,7 +48,10 @@ const myFirebaseAuthConfig = {
       apiKey: 'AIzaSyBqIrNb1DLsN6oP97ua3YLMJx5-gUueWJU'
     })
   ],
-  providers: [appRoutingProviders],
+  providers: [
+  appRoutingProviders,
+   AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { 
