@@ -14,6 +14,7 @@ import { AssetsComponent } from './assets/assets.component';
 import { HomeComponent } from './home/home.component';
 import { AuthComponent } from './auth/auth.component';
 import { AuthService } from './auth/auth.service';
+import { GoogleadsDirective } from './directives/googleads/googleads.directive';
 // Must export the config
 export const firebaseConfig = {
 
@@ -36,6 +37,7 @@ const myFirebaseAuthConfig = {
     AssetsComponent,
     HomeComponent,
     AuthComponent,
+    GoogleadsDirective,
     
   ],
   imports: [
