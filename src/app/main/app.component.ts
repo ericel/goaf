@@ -19,18 +19,25 @@ export class AppComponent {
   progress: number = 0;
   items: FirebaseListObservable<any[]>;
   isLoggedIn: boolean;
- 
+  user = {};
 
  
-  constructor(private titleService: Title, private AuthService : AuthService, private _r: Router) {
-    
-     
-    
-     if(this.AuthService.loggedIn){
+  constructor(private af: AngularFire, private titleService: Title, private AuthService : AuthService, private _r: Router) {
+      this.af.auth.subscribe(user => {
+      if(user) {
+        // user logged in
+        this.user = user;
         this.isLoggedIn = true;
-        console.log('hehe');
-     }
-     
+        console.log(this.user);
+    
+      }
+      else {
+        // user not logged in
+        this.user = {};
+        this.isLoggedIn = false;
+      }
+    });
+
 
      this._r.events.subscribe(event => {
       if (event instanceof RoutesRecognized) {
@@ -57,10 +64,11 @@ export class AppComponent {
     
   }
 
+
   public setTitle( newTitle: string) {
     this.titleService.setTitle( "newTitle");
   }
- 
+   
  logout() {
       this.AuthService.logout();
   }

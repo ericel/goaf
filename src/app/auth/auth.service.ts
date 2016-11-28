@@ -1,28 +1,32 @@
 import { Injectable } from '@angular/core';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/first';
+import { Observable } from 'rxjs/Observable';
 import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
+import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
 @Injectable()
-export class AuthService {
- user = {};
- isLoggedIn: boolean;
-  constructor(private af: AngularFire) {
-  	this.af.auth.subscribe(user => {
-      if(user) {
-        // user logged in
-        this.user = user;
-        this.isLoggedIn = true;
-        console.log(this.user);
-    
-      }
-      else {
-        // user not logged in
-        this.user = {};
-        this.isLoggedIn = false;
-      }
-    });
+export class AuthService implements CanActivate{
+  public allowed: boolean;
+
+  constructor(private af: AngularFire, private router: Router) { 
+    // this.af.auth.subscribe((auth) => console.log(auth));
+  }
 
 
-   }
+
+ canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+    this.af.auth.subscribe((auth) =>  {
+      if(auth == null) {
+        this.router.navigate(['/auth']);
+        this.allowed = false;
+      } else {
+        this.allowed = true;
+      }
+    })
+    return this.allowed;
+  }
+
 
 login() {
   this.af.auth.login({
@@ -37,7 +41,6 @@ overrideLogin() {
     });    
   }
 
-loggedIn(){ return this.isLoggedIn}
    // Logout user
  logout() {
   this.af.auth.logout();
