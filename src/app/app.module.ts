@@ -8,6 +8,7 @@ import { routing, appRoutingProviders }  from './app-routing.module';
 import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 import { MaterialModule } from '@angular/material';
 import { AgmCoreModule } from 'angular2-google-maps/core';
+import {ToastModule} from 'ng2-toastr/ng2-toastr';
 
 import { AppComponent } from './main/app.component';
 import { AssetsComponent } from './assets/assets.component';
@@ -28,7 +29,7 @@ export const firebaseConfig = {
 
 const myFirebaseAuthConfig = {
   provider: AuthProviders.Google,
-  method: AuthMethods.Popup
+  method: AuthMethods.Redirect
 }
 
 @NgModule({
@@ -49,7 +50,8 @@ const myFirebaseAuthConfig = {
     routing,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBqIrNb1DLsN6oP97ua3YLMJx5-gUueWJU'
-    })
+    }),
+    ToastModule
   ],
   providers: [
   appRoutingProviders,

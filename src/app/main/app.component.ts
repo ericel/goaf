@@ -23,12 +23,13 @@ export class AppComponent {
 
  
   constructor(private af: AngularFire, private titleService: Title, private AuthService : AuthService, private _r: Router) {
+    console.log(AuthService.canActivate);
       this.af.auth.subscribe(user => {
       if(user) {
         // user logged in
         this.user = user;
         this.isLoggedIn = true;
-        console.log(this.user);
+        //console.log(this.user);
     
       }
       else {

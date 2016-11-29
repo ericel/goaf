@@ -2,34 +2,47 @@ import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/first';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/take';
 import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
 import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
 @Injectable()
 export class AuthService implements CanActivate{
   public allowed: boolean;
-
+  user: {};
   constructor(private af: AngularFire, private router: Router) { 
     // this.af.auth.subscribe((auth) => console.log(auth));
   }
 
 
 
- canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    this.af.auth.subscribe((auth) =>  {
+ 
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
+    return this.af.auth.map((auth) =>  {
       if(auth == null) {
         this.router.navigate(['/auth']);
-        this.allowed = false;
+        return false;
       } else {
-        this.allowed = true;
+        return true;
       }
-    })
-    return this.allowed;
+    }).first()
   }
+isloggedIn (){
+  this.af.auth.subscribe(user => {
+    if (user) {
+      console.log(user);
+      this.allowed = true;
+    } else {
+      this.allowed = false;
+    }
+     return this.allowed;
+  });
+ 
+}
 
 
 login() {
-  this.af.auth.login({
+  return this.af.auth.login({
     provider: AuthProviders.Facebook,
     method: AuthMethods.Redirect
   });
