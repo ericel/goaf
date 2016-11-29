@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": "",
     "declaration": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -14,7 +15,7 @@
       "../node_modules/@types"
     ],
     "types": [
-      "hammerjs"
+       "hammerjs"
     ]
   }
 }
