@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ViewContainerRef } from '@angular/core';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import { Title }     from '@angular/platform-browser';
 import {ActivatedRoute, Router, Routes, RouterModule, RoutesRecognized, NavigationEnd} from '@angular/router';
 import { AuthService } from '../auth/auth.service';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -22,14 +23,15 @@ export class AppComponent {
   user = {};
 
  
-  constructor(private af: AngularFire, private titleService: Title, private AuthService : AuthService, private _r: Router) {
+  constructor(public toastr: ToastsManager, vRef: ViewContainerRef,  private af: AngularFire, private titleService: Title, private AuthService : AuthService, private _r: Router) {
+   this.toastr.setRootViewContainerRef(vRef);
     console.log(AuthService.canActivate);
       this.af.auth.subscribe(user => {
       if(user) {
         // user logged in
         this.user = user;
         this.isLoggedIn = true;
-        //console.log(this.user);
+        this.toastr.custom('<div class="toast-show-o alert alert-success alert-dismissible fade in" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>Success!</strong> You Successfully Logged in!</div>', null, {enableHTML: true});
     
       }
       else {

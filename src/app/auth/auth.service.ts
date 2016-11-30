@@ -10,16 +10,24 @@ import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from
 export class AuthService implements CanActivate{
   public allowed: boolean;
   user: {};
+  private isloggedIn;
   constructor(private af: AngularFire, private router: Router) { 
     // this.af.auth.subscribe((auth) => console.log(auth));
+    this.af.auth.subscribe(user => {
+    if (user) {
+      this.isloggedIn = 'true';
+    } else {
+      this.isloggedIn = 'false';
+    }
+   });
+
+
   }
 
-
-
  
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
+canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
     return this.af.auth.map((auth) =>  {
-      if(auth == null) {
+      if(auth == null) {  
         this.router.navigate(['/auth']);
         return false;
       } else {
@@ -27,7 +35,13 @@ export class AuthService implements CanActivate{
       }
     }).first()
   }
-isloggedIn (){
+
+isLoggedIn () {
+ return this.isloggedIn;
+
+}
+
+redirectAuth() {
   this.af.auth.subscribe(user => {
     if (user) {
       console.log(user);
@@ -37,9 +51,7 @@ isloggedIn (){
     }
      return this.allowed;
   });
- 
 }
-
 
 login() {
   return this.af.auth.login({
@@ -49,7 +61,7 @@ login() {
 }
 
 overrideLogin() {
-    this.af.auth.login({
+    return this.af.auth.login({
       provider: AuthProviders.Google
     });    
   }
