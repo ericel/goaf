@@ -3,12 +3,16 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { PlacesModule } from './places/places.module';
+
 import { routing, appRoutingProviders }  from './app-routing.module';
 
 import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 import { MaterialModule } from '@angular/material';
 import { AgmCoreModule } from 'angular2-google-maps/core';
 import {ToastModule} from 'ng2-toastr/ng2-toastr';
+
+import { AppRoutingModule }   from './app-routing.module.3';
 
 import { AppComponent } from './main/app.component';
 import { AssetsComponent } from './assets/assets.component';
@@ -51,7 +55,8 @@ const myFirebaseAuthConfig = {
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBqIrNb1DLsN6oP97ua3YLMJx5-gUueWJU'
     }),
-    ToastModule
+    ToastModule,
+    PlacesModule
   ],
   providers: [
   appRoutingProviders,
