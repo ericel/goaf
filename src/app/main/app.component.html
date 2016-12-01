@@ -27,7 +27,7 @@
 
   <ul class="nav navbar-nav account">
   
-     <span *ngIf="!isLoggedIn"> 
+     <span *ngIf="!isGoafUser"> 
      <li class="mid nav-item">
         <a class="nav-link" routerLink="/auth">log in </a>
       </li>
@@ -35,7 +35,7 @@
         <a class="nav-link" routerLink="/auth">sign up</a>
       </li>
     </span>
-      <span *ngIf="isLoggedIn">
+      <span *ngIf="isGoafUser">
       <li class="nav-item mid m-drop">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">OjObasi</a>
         <div class="dropdown-menu dropdown-menu-right">

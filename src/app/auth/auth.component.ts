@@ -11,14 +11,17 @@ import {ToastsManager} from 'ng2-toastr/ng2-toastr';
 export class AuthComponent implements OnInit {
   
    constructor(private titleService: Title, private AuthService : AuthService, public toastr: ToastsManager, private af: AngularFire) {
-     
+      
    }
 
   ngOnInit() {
-     this.titleService.setTitle("some component title");
-      this.AuthService.isLoggedIn.subscribe(value => { 
-        console.log(value);
-      });
+     this.titleService.setTitle("Register a free account with goaf");
+     this.AuthService.isLoggedIn.subscribe(value => { 
+        this.isGoafUser = value;
+        if(this.isGoafUser){
+          this.AuthService.createUserRow();
+        }
+     });    
   }
 
  public setTitle( newTitle: string) {
