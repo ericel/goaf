@@ -9,7 +9,7 @@ import {ToastsManager} from 'ng2-toastr/ng2-toastr';
   styleUrls: ['./auth.component.css']
 })
 export class AuthComponent implements OnInit {
-  
+  isGoafUser: boolean;
    constructor(private titleService: Title, private AuthService : AuthService, public toastr: ToastsManager, private af: AngularFire) {
       
    }

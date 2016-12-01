@@ -21,14 +21,18 @@ export class AppComponent {
   items: FirebaseListObservable<any[]>;
   user = {};
   
- 
+  isGoafUser: boolean;
   constructor(public toastr: ToastsManager, vRef: ViewContainerRef,  private af: AngularFire, private titleService: Title, private AuthService : AuthService, private _r: Router) {
    this.toastr.setRootViewContainerRef(vRef);
    //Check logged in user
     this.AuthService.isLoggedIn.subscribe(value => { 
+      
         this.isGoafUser = value;
+     
     });
-    
+    this.AuthService.getUserData().subscribe(userData => {
+      console.log(userData);
+    });
     //routes manipulation
      this._r.events.subscribe(event => {
       if (event instanceof RoutesRecognized) {
@@ -54,6 +58,7 @@ export class AppComponent {
 
     
   }
+
 
 
   public setTitle( newTitle: string) {
