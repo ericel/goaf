@@ -3,6 +3,8 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/first';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/take';
+import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+
 import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
 import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
@@ -10,17 +12,16 @@ import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from
 export class AuthService implements CanActivate{
   public allowed: boolean;
   user: {};
-  private isloggedIn;
+  isLoggedIn: any;
+  private isloggedIn:Subject = new BehaviorSubject(false);
   constructor(private af: AngularFire, private router: Router) { 
-    // this.af.auth.subscribe((auth) => console.log(auth));
-    this.af.auth.subscribe(user => {
+    this.isLoggedIn = this.af.auth.map((user) => { // map instead of subscribe
     if (user) {
-      this.isloggedIn = 'true';
+      return true;
     } else {
-      this.isloggedIn = 'false';
+      return false;
     }
    });
-
 
   }
 
@@ -36,10 +37,7 @@ canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observab
     }).first()
   }
 
-isLoggedIn () {
- return this.isloggedIn;
 
-}
 
 redirectAuth() {
   this.af.auth.subscribe(user => {

@@ -12,8 +12,6 @@ import { MaterialModule } from '@angular/material';
 import { AgmCoreModule } from 'angular2-google-maps/core';
 import {ToastModule} from 'ng2-toastr/ng2-toastr';
 
-import { AppRoutingModule }   from './app-routing.module.3';
-
 import { AppComponent } from './main/app.component';
 import { AssetsComponent } from './assets/assets.component';
 import { HomeComponent } from './home/home.component';
@@ -59,7 +57,7 @@ const myFirebaseAuthConfig = {
     PlacesModule
   ],
   providers: [
-  appRoutingProviders,
+   appRoutingProviders,
    AuthService
   ],
   bootstrap: [AppComponent]

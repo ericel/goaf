@@ -1,4 +1,4 @@
-import { NgModule, ModuleWithProviders }  from '@angular/core';
+import { ModuleWithProviders }  from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PlacesComponent } from './places.component';
 
@@ -11,8 +11,13 @@ const routes: Routes = [
     }
   }
 ];
+
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class PlacesRoutingModule {}
+
+export const appRoutingProviders: any[] = [
+
+];
+export const routing: ModuleWithProviders = RouterModule.forRoot(routes);
