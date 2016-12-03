@@ -5,8 +5,8 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/take';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 //import {Subject} from '@reactivex/rxjs/dist/cjs/Subject';
-import * as firebase from 'firebase';
-import { AngularFire, AuthProviders, AuthMethods, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
+
+import { AngularFire, AuthProviders, AuthMethods, FirebaseObjectObservable } from 'angularfire2';
 import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
 @Injectable()
@@ -40,13 +40,17 @@ export class AuthService implements CanActivate{
       return false;
     }
    });
-   this.userThis = af.database.object('/goaf-users/'+this.uid+'', { preserveSnapshot: true });
+  
    this.users = af.database.object('/goaf-users', { preserveSnapshot: true });
+
     this.users.subscribe(snapshot => {
-      //console.log(snapshot.key)
+      
       let usersVal = snapshot.val();
+ 
+      
       
     });
+
   }
 
  
@@ -72,7 +76,7 @@ createUserRow() {
             username: this.username,
             useremail: this.useremail,
             provider: this.provider,
-            signup  : firebase.database.ServerValue.TIMESTAMP,
+            signup  : this.af.database.ServerValue.TIMESTAMP,
             photoUrl: this.photoUrl
         });
  /*     }
@@ -80,9 +84,27 @@ createUserRow() {
 }
 
 getUserData() {
- return this.userThis.map(snapshot => {
+
+ //*return this.userThis.map(snapshot => {
+   //console.log(this.usersVal[this.uid].username);
+   /*let userObject = snapshot.val();
+   let thisUid = this.uid;
+   console.log(this.uid);
+   //letconsole.log(userObject.thisUid.username);
       return snapshot.val();
+
+    });*/
+
+
+   return this.users.map(snapshot => {
+      
+      let usersVal = snapshot.val();
+      return usersVal[this.uid];
+      
+      
     });
+ 
+
 }
 redirectAuth() {
   this.af.auth.subscribe(user => {

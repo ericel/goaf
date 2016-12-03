@@ -37,17 +37,17 @@
     </span>
       <span *ngIf="isGoafUser">
       <li class="nav-item mid m-drop">
-        <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">OjObasi</a>
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{username}}</a>
         <div class="dropdown-menu dropdown-menu-right">
           <a class="dropdown-item" href="#">Action</a>
           <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <a class="dropdown-item" href="#">Something else herex</a>
           <div class="dropdown-divider"></div>
           <button class="dropdown-item"  (click)="logout()">Logout</button>
         </div>
       </li>
       <li class="nav-item">
-         <a class="nav-link" routerLink="/assets"><img class="useravatar" src="./assets/images/default_avatar.png" alt="username"></a>
+         <a class="nav-link" routerLink="/assets"><img class="useravatar" src="{{photoUrl}}" alt="username"></a>
       </li>
       </span>
     </ul>

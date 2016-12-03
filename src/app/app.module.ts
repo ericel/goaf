@@ -18,6 +18,8 @@ import { HomeComponent } from './home/home.component';
 import { AuthComponent } from './auth/auth.component';
 import { AuthService } from './auth/auth.service';
 import { GoogleadsDirective } from './directives/googleads/googleads.directive';
+import {NgPipesModule} from 'ng2-pipes';
+//import * as firebase from 'firebase';
 // Must export the config
 export const firebaseConfig = {
 
@@ -40,7 +42,7 @@ const myFirebaseAuthConfig = {
     AssetsComponent,
     HomeComponent,
     AuthComponent,
-    GoogleadsDirective,
+    GoogleadsDirective
     
   ],
   imports: [
@@ -54,7 +56,8 @@ const myFirebaseAuthConfig = {
       apiKey: 'AIzaSyBqIrNb1DLsN6oP97ua3YLMJx5-gUueWJU'
     }),
     ToastModule,
-    PlacesModule
+    PlacesModule,
+    NgPipesModule
   ],
   providers: [
    appRoutingProviders,

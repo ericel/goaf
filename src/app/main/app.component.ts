@@ -15,7 +15,8 @@ export class AppComponent {
   isHeader: boolean;
 
   title = 'app works!';
-
+  username: string;
+  photoUrl: string;
   
   progress: number = 0;
   items: FirebaseListObservable<any[]>;
@@ -31,7 +32,8 @@ export class AppComponent {
      
     });
     this.AuthService.getUserData().subscribe(userData => {
-      console.log(userData);
+      this.username = userData.username;
+      this.photoUrl = userData.photoUrl;
     });
     //routes manipulation
      this._r.events.subscribe(event => {
