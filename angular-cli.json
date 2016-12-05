@@ -19,6 +19,9 @@
       "mobile": false,
       "styles": [
         "material2-theme.scss",
+        "../node_modules/font-awesome/css/font-awesome.min.css",
+        "../node_modules/animate.css/animate.min.css",
+        "../node_modules/normalize.css/normalize.css",
         "../node_modules/bootstrap/dist/css/bootstrap.css",
         "styles.css"
       ],

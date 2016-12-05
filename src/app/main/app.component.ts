@@ -1,4 +1,4 @@
-import { Component, ViewContainerRef } from '@angular/core';
+import { Component, ViewContainerRef, ViewChild } from '@angular/core';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import { Title }     from '@angular/platform-browser';
 import {ActivatedRoute, Router, Routes, RouterModule, RoutesRecognized, NavigationEnd} from '@angular/router';
@@ -11,8 +11,6 @@ import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 })
 
 export class AppComponent {
-
-  isHeader: boolean;
 
   title = 'app works!';
   username: string;
@@ -48,7 +46,7 @@ export class AppComponent {
         //console.log('navigated to:', event.urlAfterRedirects);
         if(event.urlAfterRedirects === '/home'){
           //console.log("this is home");
-          this.isHeader = true;
+          //this.isHeader = true;
         }
       }
     });
@@ -60,6 +58,7 @@ export class AppComponent {
 
     
   }
+
 
 
 

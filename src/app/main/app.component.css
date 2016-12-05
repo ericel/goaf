@@ -10,6 +10,9 @@
     background-color: #287bbc;
     
 }
+.nav-up {
+    top: -40px;
+}
 /*.down-nav {
     background-color: #1a1a1a;
     background-image: -webkit-linear-gradient(to bottom, #1a1a1a 0%,#303030 100%);
