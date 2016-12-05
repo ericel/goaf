@@ -1,13 +1,31 @@
 import { ModuleWithProviders }  from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PlacesComponent } from './places.component';
-
+import { HomeComponent } from './home/home.component';
+import { ListComponent } from './list/list.component';
+import { AuthService } from '../auth/auth.service';
 const routes: Routes = [
    {
-    path: 'places',
+    path: 'places?home',
     component: PlacesComponent,
     data: {
       title: 'Find a place'
+    }
+  },
+  {
+    path: 'places',
+    component: HomeComponent,
+    data: {
+      title: 'Home a place'
+    }
+  }
+  ,
+  {
+    path: 'place/list',
+    component: ListComponent,
+    canActivate: [AuthService],
+    data: {
+      title: 'List A Place'
     }
   }
 ];
@@ -17,7 +35,5 @@ const routes: Routes = [
   exports: [RouterModule]
 })*/
 
-export const appRoutingProviders: any[] = [
 
-];
-export const routing: ModuleWithProviders = RouterModule.forRoot(routes);
+export const PlacesRouting: ModuleWithProviders = RouterModule.forRoot(routes);

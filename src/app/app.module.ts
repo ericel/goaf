@@ -19,7 +19,7 @@ import { AuthComponent } from './auth/auth.component';
 import { AuthService } from './auth/auth.service';
 import { GoogleadsDirective } from './directives/googleads/googleads.directive';
 import {NgPipesModule} from 'ng2-pipes';
-//import * as firebase from 'firebase';
+
 // Must export the config
 export const firebaseConfig = {
 
@@ -60,7 +60,7 @@ const myFirebaseAuthConfig = {
     NgPipesModule
   ],
   providers: [
-   appRoutingProviders,
+  
    AuthService
   ],
   bootstrap: [AppComponent]

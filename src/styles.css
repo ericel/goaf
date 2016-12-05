@@ -2,7 +2,8 @@
 /*@import '~@angular/material/core/theming/prebuilt/pink-bluegrey.css';*/
 @import url('https://fonts.googleapis.com/css?family=Baloo+Bhaina|Lora');
 body, html {
-	background: #e9ebee;
+	background: #f6f7f9;
+    background: #e9ebee;
     color: #1d2129;
 	/*background: url('./assets/images/design/bg_2.png');*/
 }
@@ -174,3 +175,5 @@ app-root:empty + .loading {
  width: 400px;
  padding: 20px 10px;
 }
+
+/* places Home */

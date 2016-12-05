@@ -1,20 +1,25 @@
-<div class="underlay">
-<div class="bg-under">
-<main class="home container-fluid">
- 
-<div class="row reduce-guitar">
-<div class="_10pad">
-<div class="col-xs-12 col-sm-8">
-<div class="cardo ">
-<div class="row sha-s st">
-  <div class="col-xs-6 col-sm-4">
-  	<button md-button>
+
+
+<main class="place-map">
+ <sebm-google-map [latitude]="lat" [longitude]="lng">
+        <sebm-google-map-marker [latitude]="lat" [longitude]="lng"></sebm-google-map-marker>
+</sebm-google-map>
+<div class="place-map-over">
+ <h1> Discover America</h1>
+   <h2> America is not a country</h2>
+   <h3>List a place for free, Share with the world for free</h3>
+  <h2>Your Next Great Destination!</h2>
+  <h3> Goaf Places</h3>
+  <div class="cardo ">
+  <div class="row sha-s st">
+  <div class="col-xs-12 col-sm-4">
+    <button md-raised-button color="warn">
     <md-icon class="icon-st-1">place</md-icon> List a place 
    </button>
   </div>
 
-  <div class="col-xs-6 col-sm-4">
-  	<button md-button>
+  <div class="col-xs-12 col-sm-4">
+    <button md-raised-button color="primary">
     <md-icon class="icon-st-2">create</md-icon> Write a blog
    </button>
   </div>
@@ -22,8 +27,8 @@
   <!-- Add the extra clearfix for only the required viewport -->
   <div class="clearfix hidden-sm-up"></div>
 
-  <div class="col-xs-6 col-sm-4">
-  	<button md-button>
+  <div class="col-xs-12 col-sm-4">
+    <button md-raised-button color="accent">
     <md-icon class="icon-st-3">play_circle_outline</md-icon> Upload
    </button>
 
@@ -31,117 +36,12 @@
   </div>
   </div>
 
-<div class="row">
-<div class="mg-10"></div>
-<div class="col-sm-12">
- <div class="cardo define">
-   <img src="./assets/images/design/list.jpg">
-   <div class="layout">
-   
-   <h1> Discover {{continent}}</h1>
-   <h2> {{continent}} is not a country</h2>
-   <h3>List a place for free, Share with the world for free</h3>
-   </div>
- </div>
- <div class="mg-10"></div>
- </div>
- 
-<div class="col-xs-12 col-sm-4">
-<md-card>
-   <md-card-header>
-      <img md-card-avatar src="./assets/images/default_avatar.png">
-      <md-card-title>Oj obasi added</md-card-title>
-      <md-card-subtitle>Header subtitle</md-card-subtitle>
-   </md-card-header>
-   <img md-card-image src="./assets/images/design/room.jpeg">
-   <md-card-content>
-      <p>Here is some more content</p>
-   </md-card-content>
-</md-card>
-</div>
-<div class="col-xs-12 col-sm-4">
-<md-card>
-   <md-card-header>
-      <img md-card-avatar src="./assets/images/default_avatar.png">
-      <md-card-title>Oj obasi added</md-card-title>
-      <md-card-subtitle>Header subtitle</md-card-subtitle>
-   </md-card-header>
-   <img md-card-image src="./assets/images/design/room.jpeg">
-   <md-card-content>
-      <p>Here is some more content</p>
-   </md-card-content>
-</md-card>
-</div>
-<div class="col-xs-12 col-sm-4">
-<md-card>
-   <md-card-header>
-      <img md-card-avatar src="./assets/images/default_avatar.png">
-      <md-card-title>Oj obasi added</md-card-title>
-      <md-card-subtitle>Header subtitle</md-card-subtitle>
-   </md-card-header>
-   <img md-card-image src="./assets/images/design/room.jpeg">
-   <md-card-content>
-      <p>Here is some more content</p>
-   </md-card-content>
-</md-card>
-</div>
-
-
-<div class="mg-10"></div>
-</div>
-
-
-  </div>
-   <div class="col-xs-12 col-sm-4 xxlist">
-   
-  <md-card>
-   
-     <ul class="list-group ">
-     <li class="list-group-item disabled list-group-item-action active">News</li>
-       <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
-  <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
-  <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
-  <a href="#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>
-   <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
-  <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
-  <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
-  <a href="#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>
-   <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
-  
-    </ul>
-     
-</md-card>
- <div class="row">
-  <div class="col-xl-6">
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- anotherAds -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-2243338195594977"
-     data-ad-slot="8059130774"
-     data-ad-format="auto"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-  </div>
-  <div class="col-xl-6">
-   another part
-  </div>
- </div>
-</div>
-
-</div>
+  <div>
+        <ul class="all-search">
+          <li><a routerLink="/home"><i class="material-icons" aria-hidden="true">place</i></a></li>
+          <li><i class="material-icons" aria-hidden="true">work</i></li>
+          <li><i class="material-icons" aria-hidden="true">headset</i></li>
+        </ul>
+     </div>
 </div>
 </main>
-</div>
-</div>
-<div class="place-map">
- <sebm-google-map [latitude]="lat" [longitude]="lng">
-        <sebm-google-map-marker [latitude]="lat" [longitude]="lng"></sebm-google-map-marker>
-</sebm-google-map>
-<div class="place-map-over">
-  <h2>Your Next Great Destination!</h2>
-  <h3> Goaf Places</h3>
-
-</div>
-</div>

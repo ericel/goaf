@@ -5,13 +5,14 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/take';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 //import {Subject} from '@reactivex/rxjs/dist/cjs/Subject';
+import * as firebase from 'firebase';
 
 import { AngularFire, AuthProviders, AuthMethods, FirebaseObjectObservable } from 'angularfire2';
 import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
 @Injectable()
 export class AuthService implements CanActivate{
-  userRows: any;
+  userRows: FirebaseObjectObservable<any>;
   users: FirebaseObjectObservable<any>;
   uid: string;
   username: string;
@@ -22,7 +23,8 @@ export class AuthService implements CanActivate{
   userThis: FirebaseObjectObservable<any>;
   user: {};
   isLoggedIn: any;
-
+  usersArray: any; 
+  usersArrayVal: {};
   //private isloggedIn:Subject 
   private isloggedIn = new BehaviorSubject(false);
   constructor(private af: AngularFire, private router: Router) { 
@@ -35,6 +37,7 @@ export class AuthService implements CanActivate{
       this.photoUrl = user.auth.photoURL;
       this.provider = user.auth.providerData[0].providerId;
       this.userRows = this.af.database.object(`/goaf-users/${this.uid}`);
+      //this.router.navigate(['/home']);
       return true;
     } else {
       return false;
@@ -43,11 +46,9 @@ export class AuthService implements CanActivate{
   
    this.users = af.database.object('/goaf-users', { preserveSnapshot: true });
 
-    this.users.subscribe(snapshot => {
-      
-      let usersVal = snapshot.val();
- 
-      
+   this.usersArray = this.users.map((snapshot) => {
+      this.usersArrayVal = snapshot.val();
+      return true;
       
     });
 
@@ -66,23 +67,37 @@ canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observab
   }
 
 createUserRow() {
- /* this.users.subscribe(snapshot => {
-      let usersVal = snapshot.val();
-      if (usersVal[this.uid]) {
-        console.log('This user already has a row not need to hit the database again!');
-      } else {
- */
+  this.usersArray.subscribe(value => { 
+    //this.usersArrayVal = value;
+  });
+  //console.log(this.usersArrayVal);
          this.userRows.set({
             username: this.username,
             useremail: this.useremail,
             provider: this.provider,
-            signup  : this.af.database.ServerValue.TIMESTAMP,
+            signup  : firebase.database.ServerValue.TIMESTAMP,
             photoUrl: this.photoUrl
         });
- /*     }
-    }); */
+  
 }
 
+updateUserInfo() {
+   this.users.subscribe(snapshot => {
+      let usersVal = snapshot.val();
+      console.log(usersVal[this.uid].photoUrl);
+      if (usersVal[this.uid]) {
+         if(usersVal[this.uid].photoUrl !== this.photoUrl){
+           console.log('different');
+           /*this.userRows.set({
+              username: this.username,
+              useremail: this.useremail,
+              provider: this.provider,
+              photoUrl: this.photoUrl
+          });*/
+         }
+      }
+    }); 
+}
 getUserData() {
 
  //*return this.userThis.map(snapshot => {

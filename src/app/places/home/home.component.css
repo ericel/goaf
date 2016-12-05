@@ -1,4 +1,3 @@
-
 .cardo {
     background: #ffffff;
     border: 1px solid;
@@ -33,19 +32,19 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', end
   color:pink;
 }
 .st [md-raised-button] {
-	
+    
   padding: 10px;
   padding-bottom: 5px;
   width: 100%;
   
 }
 .icon-st-1, .icon-st-2, .icon-st-3 {
-	font-size: 2em;
-	float: left;
-	 margin-right: 10px;
+    font-size: 2em;
+    float: left;
+     margin-right: 10px;
 }
 .st [md-raised-button] {
-	overflow: hidden;
+    overflow: hidden;
 }
 .st md-icon {
   margin-top: 4px;
@@ -85,7 +84,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', end
 
 
 .sebm-google-map-container {
-  height: 500px;
+  height: 678px;
 
 }
 .place-map {
@@ -104,6 +103,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', end
    font-size: 2em;
    background: rgb(0, 0, 0); /* fallback color */
    background: rgba(0, 0, 0, 0.7);
+
+   background: rgba(0, 2, 4, 0.63);
    padding: 15px; 
    text-align: center;
 }
@@ -114,6 +115,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', end
   color: #287bbc;
  
 }
+
 @media screen and (max-width: 541px){
   .place-map-over {
     font-size: 1em;
@@ -121,6 +123,135 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', end
   .place-map-over h1 {
     font-size: 1em;
   }
+}
+
+.place-search {
+     background-color: #e9ebee ;
+     bottom: 0px ;
+     left: 0px ;
+    position: fixed ;
+     right: 0px ;
+     top: 0px ;
+     z-index: 1 ;
+ }
+ .place-search div.inner-place {
+      color: #000000 ;
+     font-family: monospace ;
+    left: 0px ;
+    margin-top: -37px ;
+   position: absolute ;
+    right: 0px ;
+    text-align: center ;
+   top: 50% ;
+}
+.input-group .form-control{
+    height:62px;
+}
+.btn {
+    height: 60px;
+}
+.searchbtn {
+    padding:0 40px;
+}
+.searchbtn span{
+ display: block;
+}
+
+
+.dropdown.dropdown-lg .dropdown-menu {
+    margin-top: -1px;
+    padding: 6px 20px;
+
+}
+.input-group-btn .btn-group {
+    display: flex !important;
+}
+.btn-group .btn {
+    border-radius: 0;
+    margin-left: -1px;
+}
+.btn-group .btn:last-child {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+.btn-group .form-horizontal .btn[type="submit"] {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.form-horizontal .form-group {
+    margin-left: 0;
+    margin-right: 0;
+}
+.form-group .form-control:last-child {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+.dropdown.dropdown-lg .dropdown-menu {
+        min-width: 100%;
+    }
+
+.dropdown-toggle::after {
+    display: block !important;
+    width: 0;
+    height: 0;
+    margin-left: 0.50em !important;
+    vertical-align: middle;
+    content: "";
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-left: 0.3em solid transparent;
+    text-align: center;
+}
+.searchbtn {
+    padding:0 40px;
+}
+.searchbtn span{
+ display: block;
+}
+.dropdown.dropdown-lg .dropdown-menu {
+        min-width: 300px;
+        z-index: 9999 !important;
+    }
+.dropdown-menu { z-index: 9999;}
+
+
+.container {
+    width: 100%;
+}
+.search {
+  position: static !important;
+
+}
+.search {
+    position: static !important;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.search * {
+  box-sizing: border-box;
+}
+.collapse {
+    margin-top: -1px;
+    padding: 5px;
+    background: #fff;
+    border-radius: 4px;
+}
+@media screen and (min-width: 768px) {
+    #adv-search, .search {
+        width: 700px;
+        margin: 0 auto;
+    }
+    .search {
+        width: 740px;
+    }
+    .dropdown.dropdown-lg {
+        position: static !important;
+    }
+    .dropdown.dropdown-lg .dropdown-menu {
+        min-width: 700px;
+    }
 }
 .all-search {
  margin-top: 15px;
@@ -139,4 +270,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', end
 }
 .all-search li a {
     color: #ccd;
+}
+.place-map-over h2 {
+    color: #fff;
+}
+.place-map-over h3 {
+    color: #f44336;
+}
+.place-map-over h1 {
+  font-family: 'Lora', serif;
+  color: #ffd740;
 }
