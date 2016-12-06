@@ -1,0 +1,40 @@
+/*template define */
+.app-action {
+  display: inline-block;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+@media screen and (max-width: 544px){
+.no-small-template{
+    display: none;
+}
+}
+@media screen and (min-width: 544px){
+.no-big-template{
+    display: none;
+}
+}
+
+footer {
+  min-height: 100px;
+  text-align: center;
+  padding: 10px
+}
+.countries a {
+  color: #4A4A4A;
+  font-size: 1.2em;
+}
+.blacker {
+  background-color: #1a1a1a;
+  height: 150px;
+  color: #ccd;
+}
+.blacker small {
+
+  color: #333;
+}
+
+.blacker .location span {
+  font-family: 'Baloo Bhaina', cursive;
+}

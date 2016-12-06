@@ -1,0 +1,98 @@
+<!--<div *ngIf="!isHeader">-->
+<div>
+<nav class="navbar navbar-fixed-top navbar-light bg-faded" color="primary">
+<div class="container-fluid">
+<a class="navbar-brand float-left" routerLink="/home">Goaf</a>
+ 
+  
+ <button class="navbar-toggler hidden-sm-up float-right" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2" aria-controls="exCollapsingNavbar2" aria-expanded="false" aria-label="Toggle navigation">
+    &#9776;
+  </button>
+ 
+ 
+  
+  <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
+    
+     <div class="search">
+         <form name="searchForm">
+         <label for="searchstring"  aria-label="Search"> </label>
+          <input type="text" class="form-control input-sm" name="searchstring" id="searchstring" ng-model="searchstring" minlength="3" maxlength="64" minlength="3" placeholder="Search" required="" value="">
+
+          <span class="error"></span>
+           <button md-raised-button color="primary" class="btnn md-button"><i class="material-icons">search</i></button>
+          </form>
+     </div>
+  
+  <div class="float-xs-right">
+
+  <ul class="nav navbar-nav account">
+  
+     <span *ngIf="!isGoafUser"> 
+     <li class="mid nav-item">
+        <a class="nav-link" routerLink="/register">log in </a>
+      </li>
+    <li class="mid nav-item">
+        <a class="nav-link" routerLink="/register">sign up</a>
+      </li>
+    </span>
+      <span *ngIf="isGoafUser">
+      <li class="nav-item mid m-drop">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{username}}</a>
+        <div class="dropdown-menu dropdown-menu-right">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else herex</a>
+          <div class="dropdown-divider"></div>
+          <button class="dropdown-item"  (click)="logout()">Logout</button>
+        </div>
+      </li>
+      <li class="nav-item">
+         <a class="nav-link" routerLink="/assets"><img class="useravatar" src="{{photoUrl}}" alt="username"></a>
+      </li>
+      </span>
+    </ul>
+  
+  </div>
+  </div>
+</div>  
+</nav>
+ <div class="down-nav animated slideInDown">
+  <div class="container-fluid">
+  <ul class="nav navbar-nav">
+    <li class="nav-item active">
+      <a class="nav-link" href="/assets">Home <span class="sr-only">(current)</span></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/places">Places</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">News Stories</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Jobs</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">People</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Music</a>
+    </li>
+    <div class="float-xs-right">
+    <li class="nav-item">
+      <a class="nav-link" href="#">People</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Music</a>
+    </li>
+    </div>
+  </ul>
+  </div>
+</div>
+</div>
+
+
+<!--<ul>
+    <li><a (click)="setTitle( 'Good morning!' )">Good morning</a>.</li>
+    <li><a (click)="setTitle( 'Good afternoon!' )">Good afternoon</a>.</li>
+    <li><a (click)="setTitle( 'Good evening!' )">Good evening</a>.</li>
+  </ul>-->

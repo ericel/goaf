@@ -19,7 +19,7 @@ const routes: Routes = [
    pathMatch: 'full'
   },
    {
-    path: 'auth',
+    path: 'register',
     component: AuthComponent,
     data: {
       title: 'Log in to your account'

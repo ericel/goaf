@@ -58,7 +58,7 @@ export class AuthService implements CanActivate{
 canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
     return this.af.auth.map((auth) =>  {
       if(auth == null) {  
-        this.router.navigate(['/auth']);
+        this.router.navigate(['/register']);
         return false;
       } else {
         return true;

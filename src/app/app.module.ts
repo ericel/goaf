@@ -20,6 +20,10 @@ import { AuthComponent } from './auth/auth.component';
 import { AuthService } from './auth/auth.service';
 import { GoogleadsDirective } from './directives/googleads/googleads.directive';
 import {NgPipesModule} from 'ng2-pipes';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+
+
 
 // Must export the config
 export const firebaseConfig = {
@@ -43,8 +47,9 @@ const myFirebaseAuthConfig = {
     AssetsComponent,
     HomeComponent,
     AuthComponent,
-    GoogleadsDirective
-    
+    GoogleadsDirective,
+    HeaderComponent,
+    FooterComponent    
   ],
   imports: [
     BrowserModule,
