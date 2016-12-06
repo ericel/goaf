@@ -232,7 +232,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', end
 .search * {
   box-sizing: border-box;
 }
-.collapse {
+.collapse .add {
     margin-top: -1px;
     padding: 5px;
     background: #fff;

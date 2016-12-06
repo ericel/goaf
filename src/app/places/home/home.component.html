@@ -1,5 +1,5 @@
 <main class="place-map">
-	<sebm-google-map [latitude]="lat" [longitude]="lng">
+	<sebm-google-map class="animate wow bounce" [latitude]="lat" [longitude]="lng">
 	        <sebm-google-map-marker [latitude]="lat" [longitude]="lng"></sebm-google-map-marker>
 	</sebm-google-map>
 	<div class="place-map-over">
@@ -22,7 +22,8 @@
                 </div>
 
             </div>
-               <div class="collapse" id="collapseExample">
+               <div class="collapse " id="collapseExample" >
+               <div class="add animated slideInDown">
                    <div class="form-group">
                                     <!--<label for="filter">Filter by</label>-->
                        <select class="form-control">
@@ -42,6 +43,7 @@
                                     <input class="form-control" type="text" />
                                   </div>
                                  <!-- <button type="submit" class="btn btn-primary"><i class="material-icons" aria-hidden="true">search</i></button>-->
+                        </div>
                         </div>
              </form>
           </div>
