@@ -13,6 +13,11 @@
 .nav-up {
     top: -40px;
 }
+
+.page-scroll-header {
+    background-color: #ccc !important;
+    opacity: 0.9;
+}
 /*.down-nav {
     background-color: #1a1a1a;
     background-image: -webkit-linear-gradient(to bottom, #1a1a1a 0%,#303030 100%);
@@ -226,4 +231,11 @@ button.dropdown-item:hover {
 }
 .dropdown-menu a:hover {
   color: #333;
+}
+.stick {
+    
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
 }

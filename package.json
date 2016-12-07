@@ -26,6 +26,7 @@
     "animate.css": "^3.5.2",
     "bootstrap": "^4.0.0-alpha.5",
     "core-js": "^2.4.1",
+    "css-animator": "^1.2.5",
     "firebase": "^3.6.2",
     "font-awesome": "^4.7.0",
     "ng2-pipes": "^0.4.18",

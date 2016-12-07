@@ -23,6 +23,9 @@ import {NgPipesModule} from 'ng2-pipes';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 
+import { AnimationService } from 'css-animator';
+import { StickyDirective } from './directives/sticky.directive';
+
 
 
 // Must export the config
@@ -49,7 +52,8 @@ const myFirebaseAuthConfig = {
     AuthComponent,
     GoogleadsDirective,
     HeaderComponent,
-    FooterComponent    
+    FooterComponent,
+    StickyDirective    
   ],
   imports: [
     BrowserModule,
@@ -66,7 +70,7 @@ const myFirebaseAuthConfig = {
     NgPipesModule
   ],
   providers: [
-  
+   AnimationService,
    AuthService
   ],
   bootstrap: [AppComponent]

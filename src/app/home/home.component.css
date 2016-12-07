@@ -140,3 +140,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', end
 .all-search li a {
     color: #ccd;
 }
+.pad-updates {
+  height: 500px;
+}
