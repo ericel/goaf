@@ -39,11 +39,27 @@
   <div class="container-fluid">
     <div class="row">
       <div  class="col-sm-4  location">
-        <div><md-icon>place</md-icon></div> <span>132 Suwan District, Gwangju, South Korea <small> <a class="nav-link" routerLink="/">(edit)</a></small></span>
+      <div class="titles">
+         <i class="fa fa-globe" aria-hidden="true"></i> <span>Location</span>
+         </div> 
+         <span>132 Suwan District, Gwangju, South Korea <small> <a class="nav-link" routerLink="/">(edit)</a></small></span>
         <p> You can always change your present place in your account settings</p>
       </div>
       <div  class="col-sm-4">
-        <i class="fa fa-compass" aria-hidden="true"></i> <span>Site Navigation</span> 
+        <div>
+        <div class="titles">
+          <i class="fa fa-compass" aria-hidden="true"></i> <span>Site Navigation</span>
+         </div> 
+         <ul class="site-nav">
+            <li><a routerLink="/places">Goaf Places</a></li>
+            <li><a routerLink="/jobs">Goaf Jobs</a></li> 
+            <li><a routerLink="/music">Goaf Music</a></li> 
+            <li><a routerLink="/forums">Goaf Forums</a></li> 
+            <li><a routerLink="/people">Goaf People</a></li> 
+         </ul>
+        </div>
+        <ul>
+        </ul>
       </div>
       <div  class="col-sm-4">
         <i class="fa fa-compass" aria-hidden="true"></i> <span>Gwangju</span> 
@@ -51,4 +67,19 @@
     </div>
   </div>
   <small>GOAF &copy; 2016 All rights Reserved</small>
+</footer>
+<footer class="terms-footer">
+ <div class="container-fluid">
+  <div class="pull-left">
+    <ul class="site-nav--h">
+            <li><a routerLink="/places">Terms</a></li>
+            <li><a routerLink="/jobs">Contact</a></li> 
+            <li><a routerLink="/music">About</a></li> 
+            <li><a routerLink="/people" class="last-child">Advertise</a></li> 
+         </ul>
+  </div>
+  <div class="pull-right">
+
+  </div>
+  </div>
 </footer>
