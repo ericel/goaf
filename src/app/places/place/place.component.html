@@ -6,44 +6,103 @@
 		    <template md-tab-label>
 		      Goaf Places
 		    </template>
-		     <div class="list-group">
-			  <a  class="list-group-item list-group-item-action">
-			    <h5 class="list-group-item-heading">List group item heading</h5>
-			    <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-			    <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-			    <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-			  </a>
-			   <a  class="list-group-item list-group-item-action">
-			    <h5 class="list-group-item-heading">List group item heading</h5>
-			    <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-			    <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-			    <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-			  </a>
-			  <a  class="list-group-item list-group-item-action">
-			    <h5 class="list-group-item-heading">List group item heading</h5>
-			    <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-			    <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-			    <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-			  </a>
-			   <a  class="list-group-item list-group-item-action">
-			    <h5 class="list-group-item-heading">List group item heading</h5>
-			    <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-			    <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-			    <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-			  </a>
-			  <a  class="list-group-item list-group-item-action">
-			    <h5 class="list-group-item-heading">List group item heading</h5>
-			    <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-			    <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-			    <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-			  </a>
-			   <a  class="list-group-item list-group-item-action">
-			    <h5 class="list-group-item-heading">List group item heading</h5>
-			    <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-			    <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-			    <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-			  </a>
-		</div>
+		     <ul class="list-group">
+			  <li routerLink="/auth" class="list-group-item list-group-item-action">
+			    <h1 class="list-group-item-heading">South Africa High Commission</h1>
+			    <rating [(ngModel)]="starsCount"
+			            [titles]="['one', 'two', 'three', 'four', 'five']" [float]="true">
+			    </rating>
+			    <div class="more-l">
+			    <small><i class="fa fa-map-marker" aria-hidden="true"></i> Embassy</small>
+			    <small><i class="fa fa-link" aria-hidden="true"></i> website</small>
+			    </div>
+			    <address class="list-group-item-text"><span>Address:</span> 3rd Floor, Roshamaer Place, P.O. Box 42441, Nairobi, Kenya</address>
+                <p class="list-group-item-text"><span>Hours:</span> Open today · 8AM–5PM</p>
+			    
+
+			    <!--<div *ngFor="let item of [1, 2, 3]; let index = index">
+		        <rating [(ngModel)]="starsCounts[index]"
+		                [float]="true">
+		        </rating>
+		        </div>-->
+			  </li>
+			  <li routerLink="/auth" class="list-group-item list-group-item-action">
+			    <h1 class="list-group-item-heading">South Africa High Commission</h1>
+			    <rating [(ngModel)]="starsCount"
+			            [titles]="['one', 'two', 'three', 'four', 'five']" [float]="true">
+			    </rating>
+			    <div class="more-l">
+			    <small><i class="fa fa-map-marker" aria-hidden="true"></i> Embassy</small>
+			    <small><i class="fa fa-link" aria-hidden="true"></i> website</small>
+			    </div>
+			    <address class="list-group-item-text"><span>Address:</span> 3rd Floor, Roshamaer Place, P.O. Box 42441, Nairobi, Kenya</address>
+                <p class="list-group-item-text"><span>Hours:</span> Open today · 8AM–5PM</p>
+			    
+
+			    <!--<div *ngFor="let item of [1, 2, 3]; let index = index">
+		        <rating [(ngModel)]="starsCounts[index]"
+		                [float]="true">
+		        </rating>
+		        </div>-->
+			  </li>
+			  <li routerLink="/auth" class="list-group-item list-group-item-action">
+			    <h1 class="list-group-item-heading">South Africa High Commission</h1>
+			    <rating [(ngModel)]="starsCount"
+			            [titles]="['one', 'two', 'three', 'four', 'five']" [float]="true">
+			    </rating>
+			    <div class="more-l">
+			    <small><i class="fa fa-map-marker" aria-hidden="true"></i> Embassy</small>
+			    <small><i class="fa fa-link" aria-hidden="true"></i> website</small>
+			    </div>
+			    <address class="list-group-item-text"><span>Address:</span> 3rd Floor, Roshamaer Place, P.O. Box 42441, Nairobi, Kenya</address>
+                <p class="list-group-item-text"><span>Hours:</span> Open today · 8AM–5PM</p>
+			    
+
+			    <!--<div *ngFor="let item of [1, 2, 3]; let index = index">
+		        <rating [(ngModel)]="starsCounts[index]"
+		                [float]="true">
+		        </rating>
+		        </div>-->
+			  </li>
+			  <li routerLink="/auth" class="list-group-item list-group-item-action">
+			    <h1 class="list-group-item-heading">South Africa High Commission</h1>
+			    <rating [(ngModel)]="starsCount"
+			            [titles]="['one', 'two', 'three', 'four', 'five']" [float]="true">
+			    </rating>
+			    <div class="more-l">
+			    <small><i class="fa fa-map-marker" aria-hidden="true"></i> Embassy</small>
+			    <small><i class="fa fa-link" aria-hidden="true"></i> website</small>
+			    </div>
+			    <address class="list-group-item-text"><span>Address:</span> 3rd Floor, Roshamaer Place, P.O. Box 42441, Nairobi, Kenya</address>
+                <p class="list-group-item-text"><span>Hours:</span> Open today · 8AM–5PM</p>
+			    
+
+			    <!--<div *ngFor="let item of [1, 2, 3]; let index = index">
+		        <rating [(ngModel)]="starsCounts[index]"
+		                [float]="true">
+		        </rating>
+		        </div>-->
+			  </li>
+			  <li routerLink="/auth" class="list-group-item list-group-item-action">
+			    <h1 class="list-group-item-heading">South Africa High Commission</h1>
+			    <rating [(ngModel)]="starsCount"
+			            [titles]="['one', 'two', 'three', 'four', 'five']" [float]="true">
+			    </rating>
+			    <div class="more-l">
+			    <small><i class="fa fa-map-marker" aria-hidden="true"></i> Embassy</small>
+			    <small><i class="fa fa-link" aria-hidden="true"></i> website</small>
+			    </div>
+			    <address class="list-group-item-text"><span>Address:</span> 3rd Floor, Roshamaer Place, P.O. Box 42441, Nairobi, Kenya</address>
+                <p class="list-group-item-text"><span>Hours:</span> Open today · 8AM–5PM</p>
+			    
+
+			    <!--<div *ngFor="let item of [1, 2, 3]; let index = index">
+		        <rating [(ngModel)]="starsCounts[index]"
+		                [float]="true">
+		        </rating>
+		        </div>-->
+			  </li>
+		</ul>
 		  </md-tab>
 		  <md-tab>
 		    <template md-tab-label>

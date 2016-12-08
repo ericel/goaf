@@ -30,3 +30,16 @@
 .md-tab-label {
 	width:33% !important;
 }
+rating  {
+    color: #333 !important;
+    font-size: 1.2em !important;
+}
+h1.list-group-item-heading{
+	font-size: 1.5em;
+}
+.list-group-item-text span {
+	font-size: 1.5em;
+}
+.more-l small{
+	margin-right: 15px;
+}
