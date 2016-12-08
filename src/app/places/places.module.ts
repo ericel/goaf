@@ -4,10 +4,10 @@ import { MaterialModule } from '@angular/material';
 import { PlacesComponent } from './places.component';
 import { AgmCoreModule } from 'angular2-google-maps/core';
 import { PlacesRouting }  from './places-routing.module';
-import { HomeComponent } from './home/home.component';
 import { ListComponent } from './list/list.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { PlaceComponent } from './place/place.component';
 
 @NgModule({
   imports: [
@@ -23,10 +23,10 @@ import { FooterComponent } from './footer/footer.component';
   ],
   declarations: [
     PlacesComponent,
-    HomeComponent, 
     ListComponent, 
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    PlaceComponent
   ],
   bootstrap: [PlacesComponent]
 })

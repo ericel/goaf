@@ -17,7 +17,7 @@
 }
 
 footer {
-  min-height: 100px;
+  
   text-align: center;
   padding: 10px
 }
@@ -26,15 +26,63 @@ footer {
   font-size: 1.2em;
 }
 .blacker {
-  background-color: #1a1a1a;
-  height: 150px;
+  background: linear-gradient(90deg,#263238 70%,#37424b 30%);
+  min-height: 150px;
   color: #ccd;
 }
 .blacker small {
 
-  color: #333;
+  color: #ccd;
 }
 
 .blacker .location span {
   font-family: 'Baloo Bhaina', cursive;
 }
+.blacker .titles {
+   color: #fff;
+    font: 500 14px/16px Roboto,sans-serif;
+    margin: 0 0 16px;
+}
+.site-nav--h, .site-nav {
+  list-style: none;
+  padding: 0;
+  margin:0;
+}
+.site-nav {
+
+  /*border-left: 1px solid #ccd;*/
+
+}
+
+.site-nav li a {
+  color: #cfd8dc;
+  font: 14px/16px Roboto,sans-serif;
+  margin: 15px 0;
+  padding: 10px 0;
+}
+.site-nav li a:hover {
+  color: #fff;
+}
+.terms-footer{
+   background: #455a64;
+   padding: 14px 16px;
+   height: 100%;
+}
+
+
+.site-nav--h li{
+  display: inline-block;
+  
+  
+}
+
+.site-nav--h li a {
+   color: #fff;
+    line-height: 36px;
+    font-size: 13px;
+    padding: 0 5px;
+    border-right: 1px solid #fff;
+}
+.site-nav--h .last-child{
+  border-right: 0 !important;
+  }

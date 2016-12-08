@@ -32,7 +32,7 @@ footer {
 }
 .blacker small {
 
-  color: #333;
+  color: #ccd;
 }
 
 .blacker .location span {
@@ -57,7 +57,8 @@ footer {
 .site-nav li a {
   color: #cfd8dc;
   font: 14px/16px Roboto,sans-serif;
-  margin: 10px 0;
+  margin: 15px 0;
+  padding: 10px 0;
 }
 .site-nav li a:hover {
   color: #fff;

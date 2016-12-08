@@ -8,7 +8,12 @@
 }*/
 .navbar {
     background-color: #287bbc;
-    
+    box-shadow: 0 0 1px rgba(0,0,0,.14), 0 1px 3px rgba(0,0,0,.28);
+    top: 0;
+    width: 100%;
+    z-index: 10005;
+
+
 }
 .nav-up {
     top: -40px;
@@ -29,17 +34,16 @@
     margin-top: 55px;
 }*/
 .down-nav {
-    background-color: #fff;
-    background-image: -webkit-linear-gradient(to bottom, #ffffff 0%,#fcfcfc 100%);
-    background-image: -moz-linear-gradient(to bottom, #ffffff 0%,#fcfcfc 100%);
-    background-image: -o-linear-gradient(to bottom, #ffffff 0%,#fcfcfc 100%);
-    background-image: linear-gradient(to bottom, #ffffff 0%,#fcfcfc 100%);
-    z-index: 1;
+    
     
     margin-top: 55px;
+
+    background-color: #287bbc;
+    box-shadow: 0 0 4px rgba(0,0,0,.14), 0 4px 8px rgba(0,0,0,.28);
+    z-index: 10005;
 }
 .down-nav a {
-  color: #333;
+  color: #fff;
 }
 .navbar-brand{
   background: #287bbc;

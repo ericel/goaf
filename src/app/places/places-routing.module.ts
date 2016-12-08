@@ -1,22 +1,14 @@
 import { ModuleWithProviders }  from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PlacesComponent } from './places.component';
-import { HomeComponent } from './home/home.component';
 import { ListComponent } from './list/list.component';
 import { AuthService } from '../auth/auth.service';
 const routes: Routes = [
    {
-    path: 'places?home',
+    path: 'places',
     component: PlacesComponent,
     data: {
       title: 'Find a place'
-    }
-  },
-  {
-    path: 'places',
-    component: HomeComponent,
-    data: {
-      title: 'Home a place'
     }
   }
   ,
