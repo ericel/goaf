@@ -1,6 +1,7 @@
 .list-group-item:first-child {
     border-top-right-radius: 0 !important; 
     border-top-left-radius: 0 !important; 
+    border-top: 0 !important; 
 }
 
 .col-md-6 {
@@ -13,9 +14,9 @@
 }
 
 .list-group-item:hover {
-	border-right: 0 !important;
+	border-right: 2px solid #287bbc;
 }
-.list-group-item:hover:after {
+/*.list-group-item:hover:after {
 	border: 39px solid #f5f5f5;
 	border-right-width: 0px;
     border-color: transparent  transparent transparent #f5f5f5;
@@ -23,6 +24,9 @@
     right: -39px;
     top: 0;
 	content: '';
-	z-index: 9999;
+	z-index: 999;
 	height: 100%;
+}*/
+.md-tab-label {
+	width:33% !important;
 }

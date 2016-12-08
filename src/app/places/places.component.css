@@ -107,7 +107,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', end
    background: rgba(0, 2, 4, 0.63);
    padding: 40px 0; 
    text-align: center;
-   z-index: 99999;
+   z-index: 999;
 }
 .place-map-over h3 {
   font-size: 1em;
