@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-
+import { AdsenseModule } from 'ng2-adsense';
 import { PlacesModule } from './places/places.module';
 
 import { routing, appRoutingProviders }  from './app-routing.module';
@@ -59,6 +59,7 @@ const myFirebaseAuthConfig = {
     BrowserModule,
     FormsModule,
     HttpModule,
+    AdsenseModule,
     MaterialModule.forRoot(),
     AngularFireModule.initializeApp(firebaseConfig, myFirebaseAuthConfig),
     routing,
