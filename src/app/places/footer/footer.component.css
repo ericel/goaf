@@ -86,3 +86,10 @@ footer {
 .site-nav--h .last-child{
   border-right: 0 !important;
   }
+@media screen and (max-width: 700px){
+  .terms-footer .pull-right{
+    display: block;
+    text-align: center;
+    float: none !important;
+  }
+}

@@ -8,11 +8,13 @@ import { ListComponent } from './list/list.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { PlaceComponent } from './place/place.component';
+import { AdsenseModule } from 'ng2-adsense';
 
 @NgModule({
   imports: [
     CommonModule,
     PlacesRouting,
+    AdsenseModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBqIrNb1DLsN6oP97ua3YLMJx5-gUueWJU'
     }),
