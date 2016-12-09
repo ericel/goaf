@@ -22,7 +22,8 @@
 			    <label for="formGroupExampleInput">Where is this place?</label>
 			    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
 			  </div>
-			  
+			  <vaadin-combo-box [label]="myLabel" [(value)]="myValue" [items]="myItems"></vaadin-combo-box>
+<paper-input [(value)]="myValue"></paper-input>
 			</form>
 		    </div>
 		     <ul class="list-group">

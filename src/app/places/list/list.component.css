@@ -50,3 +50,9 @@ h1.list-group-item-heading{
 .adding select {
 	width: 100%;
 }
+
+paper-input,
+vaadin-combo-box {
+  background: var(--paper-grey-200);
+  padding: 8px;
+}

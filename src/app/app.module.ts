@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -26,7 +26,7 @@ import { FooterComponent } from './footer/footer.component';
 import { AnimationService } from 'css-animator';
 import { StickyDirective } from './directives/sticky.directive';
 
-
+import { PolymerElement } from '@vaadin/angular2-polymer';
 
 // Must export the config
 export const firebaseConfig = {
@@ -53,7 +53,9 @@ const myFirebaseAuthConfig = {
     GoogleadsDirective,
     HeaderComponent,
     FooterComponent,
-    StickyDirective    
+    StickyDirective,
+    PolymerElement('vaadin-combo-box'),
+    PolymerElement('paper-input')    
   ],
   imports: [
     BrowserModule,
@@ -75,7 +77,8 @@ const myFirebaseAuthConfig = {
    AnimationService,
    AuthService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { 
   
