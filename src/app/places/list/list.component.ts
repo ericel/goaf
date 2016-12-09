@@ -12,9 +12,9 @@ export class ListComponent implements OnInit {
 
   starsCount: number;
   starsCounts: number[] = [];
-  myLabel = 'Select a number';
+  myLabel = 'Select Place Category';
   myValue = '4';
-  myItems = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+  myItems = ['Hotel', 'Restaurant', 'Office', 'Embassy', 'Education', 'School', 'Hospital', 'Coffee', 'Park', 'Bus Station','Train Station', 'Government', 'Local', 'Airport'];
   constructor() { }
 
   ngOnInit() {
