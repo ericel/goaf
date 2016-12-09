@@ -1,3 +1,88 @@
-<p>
-  list works!
-</p>
+<app-2-header></app-2-header>
+<main class="container-fluid">
+	<div class="row"> 
+	<div class="col-md-6">
+	    <md-tab-group>
+		  <md-tab>
+		    <template md-tab-label>
+		     Add a place
+		    </template>
+		    <div class="adding">
+		   <form>
+		      <div class="form-group">
+		      <label for="formGroupExampleInput">Place Category</label>
+		      	<select class="selectpicker form-control" data-live-search="true">
+				  <option data-icon="fa fa-globe" class="fa fa-globe"><i class="fa fa-globe" aria-hidden="true"></i> Ketchup</option>
+				  <option data-tokens="ketchup mustard">Hot Dog, Fries and a Soda</option>
+				  <option data-tokens="mustard">Burger, Shake and a Smile</option>
+				  <option data-tokens="frosting">Sugar, Spice and all things nice</option>
+				</select>
+		      </div>
+			  <div class="form-group">
+			    <label for="formGroupExampleInput">Where is this place?</label>
+			    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+			  </div>
+			  
+			</form>
+		    </div>
+		     <ul class="list-group">
+			  <li routerLink="/auth" class="list-group-item list-group-item-action">
+			    <h1 class="list-group-item-heading">South Africa High Commission</h1>
+			    <rating [(ngModel)]="starsCount"
+			            [titles]="['one', 'two', 'three', 'four', 'five']" [float]="true">
+			    </rating>
+			    <div class="more-l">
+			    <small><i class="fa fa-map-marker" aria-hidden="true"></i> Embassy</small>
+			    <small><i class="fa fa-link" aria-hidden="true"></i> website</small>
+			    </div>
+			    <address class="list-group-item-text"><span>Address:</span> 3rd Floor, Roshamaer Place, P.O. Box 42441, Nairobi, Kenya</address>
+                <p class="list-group-item-text"><span>Hours:</span> Open today · 8AM–5PM</p>
+			    
+
+			    <!--<div *ngFor="let item of [1, 2, 3]; let index = index">
+		        <rating [(ngModel)]="starsCounts[index]"
+		                [float]="true">
+		        </rating>
+		        </div>-->
+			  </li>
+			 
+		</ul>
+		  </md-tab>
+		  
+		</md-tab-group>
+		
+	</div>
+	<div class="col-md-6">
+	<md-tab-group>
+  <md-tab>
+    <template md-tab-label>
+      Place Map
+    </template>
+    <ng2-adsense
+  [adClient]="'ca-pub-2243338195594977'"
+  [adSlot]="7979162777">
+</ng2-adsense>
+   <sebm-google-map class="animated bounce" [latitude]="lat" [longitude]="lng">
+            <sebm-google-map-marker [latitude]="lat" [longitude]="lng"></sebm-google-map-marker>
+        </sebm-google-map>
+  </md-tab>
+  <md-tab>
+    <template md-tab-label>
+      Photos
+    </template>
+    <h1>Terrible sushi restaurants</h1>
+    <p>...</p>
+  </md-tab>
+   <md-tab>
+    <template md-tab-label>
+      Reviews
+    </template>
+    <h1>Terrible sushi restaurants</h1>
+    <p>...</p>
+  </md-tab>
+</md-tab-group>
+		
+	</div>
+  </div>
+</main>
+<app-footer></app-footer>

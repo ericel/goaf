@@ -66,9 +66,10 @@ const myFirebaseAuthConfig = {
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBqIrNb1DLsN6oP97ua3YLMJx5-gUueWJU'
     }),
+    NgPipesModule,
     ToastModule,
-    PlacesModule,
-    NgPipesModule
+    PlacesModule
+   
   ],
   providers: [
    AnimationService,

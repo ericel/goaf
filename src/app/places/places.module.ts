@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import {NgPipesModule} from 'ng2-pipes';
 import { MaterialModule } from '@angular/material';
 import { PlacesComponent } from './places.component';
 import { AgmCoreModule } from 'angular2-google-maps/core';
@@ -11,6 +12,7 @@ import { FooterComponent } from './footer/footer.component';
 import { PlaceComponent } from './place/place.component';
 import { AdsenseModule } from 'ng2-adsense';
 import {RatingModule} from "ng2-rating";
+import { Header2Component } from './2-header/2-header.component';
 
 
 @NgModule({
@@ -23,7 +25,8 @@ import {RatingModule} from "ng2-rating";
       apiKey: 'AIzaSyBqIrNb1DLsN6oP97ua3YLMJx5-gUueWJU'
     }),
      MaterialModule.forRoot(),
-    RatingModule
+    RatingModule,
+    NgPipesModule
   ],
   providers: [
   
@@ -33,7 +36,8 @@ import {RatingModule} from "ng2-rating";
     ListComponent, 
     HeaderComponent,
     FooterComponent,
-    PlaceComponent
+    PlaceComponent,
+    Header2Component,
   ],
   bootstrap: [PlacesComponent]
 })

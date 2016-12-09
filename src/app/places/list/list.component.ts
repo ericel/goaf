@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
+  lat: number = 51.678418;
+  lng: number = 7.809007;
+
+  starsCount: number;
+  starsCounts: number[] = [];
   constructor() { }
 
   ngOnInit() {
+  	this.starsCount = 2.5;
   }
-
 }
