@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { FormsModule, NgModel } from '@angular/forms';
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
@@ -7,17 +7,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
-  lat: number = 51.678418;
-  lng: number = 7.809007;
+ lat: number = 51.678418;
+ lng: number = 7.809007;
+   public pAddress : Object;
 
   starsCount: number;
   starsCounts: number[] = [];
   myLabel = 'Select Place Category';
-  myValue = '4';
-  myItems = ['Hotel', 'Restaurant', 'Office', 'Embassy', 'Education', 'School', 'Hospital', 'Coffee', 'Park', 'Bus Station','Train Station', 'Government', 'Local', 'Airport'];
+  pCategory = "Restaurant";
+  //pAddress = "3rd Floor, Roshamaer Place, P.O. Box 42441, Nairobi, Kenya";
+  pName = "South Africa High Commission";
+  myItems = ['Hotel', 'Restaurant', 'Office', 'Embassy', 'Education', 'Hostel', 'School', 'Hospital', 'Coffee', 'Park', 'Bus Station','Train Station', 'Government', 'Local', 'Airport'];
   constructor() { }
 
   ngOnInit() {
   	this.starsCount = 2.5;
+    //console.log(this.myValue);
   }
+
+  
+   getAddress(place:Object) {       
+        this.pAddress = place['formatted_address'];
+         var location = place['geometry']['location'];
+         this.lat =  location.lat();
+         this.lng = location.lng();
+         console.log("Address Object", place);
+   }
 }

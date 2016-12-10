@@ -51,8 +51,23 @@ h1.list-group-item-heading{
 	width: 100%;
 }
 
-paper-input,
+paper-input, paper-textarea,
 vaadin-combo-box {
   background: var(--paper-grey-200);
+  background: #fff;
   padding: 8px;
+}
+.form-add{
+
+}
+.prefix {
+	font-size: 
+}
+::content [prefix] {
+   
+    font-size: 26px !important;
+    margin-right: 5px !important;
+}
+.form-add button {
+	width: 100%;
 }

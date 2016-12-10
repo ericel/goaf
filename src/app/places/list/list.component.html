@@ -1,42 +1,46 @@
 <app-2-header></app-2-header>
+
 <main class="container-fluid">
 	<div class="row"> 
 	<div class="col-md-6">
 	    <md-tab-group>
 		  <md-tab>
 		    <template md-tab-label>
-		     Add a place
+		     Add a place <iron-icon icon="vaadin-icons:arrow-forward"></iron-icon>
 		    </template>
 		    <div class="adding">
-		   <form>
+		  
+		   <form class="form-add">
 		      <div class="form-group">
-		      <label for="formGroupExampleInput">Place Category</label>
-		      	<select class="selectpicker form-control" data-live-search="true">
-				  <option data-icon="fa fa-globe" class="fa fa-globe"><i class="fa fa-globe" aria-hidden="true"></i> Ketchup</option>
-				  <option data-tokens="ketchup mustard">Hot Dog, Fries and a Soda</option>
-				  <option data-tokens="mustard">Burger, Shake and a Smile</option>
-				  <option data-tokens="frosting">Sugar, Spice and all things nice</option>
-				</select>
+		      <label for="pCategory">Place Category</label>
+		      	<vaadin-combo-box id="pCategory" autofocus [label]="myLabel" [(value)]="pCategory" [items]="myItems">  </vaadin-combo-box>
+		      	<!--<div prefix>$</div>-->
 		      </div>
+              <google-maps-api id="maps" libraries="places" on-api-load="on_api_load"></google-maps-api>
 			  <div class="form-group">
-			    <label for="formGroupExampleInput">Where is this place?</label>
-			    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+			    <label for="pAddress">Where is this place?</label>
+			     
+			    <paper-input id="pAddress" label="Place Address"  [(ngModel)] = "pAddress"  (setAddress) = "getAddress($event)" googleplace
+			     name="pAddress"></paper-input>
 			  </div>
-			  <vaadin-combo-box [label]="myLabel" [(value)]="myValue" [items]="myItems"></vaadin-combo-box>
-              <!--<paper-input [(value)]="myValue"></paper-input>-->
+			  <div class="form-group">
+			    <label for="pName">Place Name</label>
+                <paper-input id="pName" label="Place Name" [(value)]="pName"></paper-input>
+                </div>
+              <button md-button md-raised-button color="primary" >Click Here To Add Place</button>
 			</form>
 		    </div>
 		     <ul class="list-group">
-			  <li routerLink="/auth" class="list-group-item list-group-item-action">
-			    <h1 class="list-group-item-heading">South Africa High Commission</h1>
+			  <li routerLink="/" class="list-group-item list-group-item-action">
+			    <h1 class="list-group-item-heading">{{pName}}</h1>
 			    <rating [(ngModel)]="starsCount"
 			            [titles]="['one', 'two', 'three', 'four', 'five']" [float]="true">
 			    </rating>
 			    <div class="more-l">
-			    <small><i class="fa fa-map-marker" aria-hidden="true"></i> Embassy</small>
+			    <small><i class="fa fa-map-marker" aria-hidden="true"></i> {{pCategory}}</small>
 			    <small><i class="fa fa-link" aria-hidden="true"></i> website</small>
 			    </div>
-			    <address class="list-group-item-text"><span>Address:</span> 3rd Floor, Roshamaer Place, P.O. Box 42441, Nairobi, Kenya</address>
+			    <address class="list-group-item-text"><span>Address:</span> {{pAddress}}</address>
                 <p class="list-group-item-text"><span>Hours:</span> Open today · 8AM–5PM</p>
 			    
 
