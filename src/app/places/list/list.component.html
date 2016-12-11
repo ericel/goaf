@@ -9,25 +9,33 @@
 		     Add a place <iron-icon icon="vaadin-icons:arrow-forward"></iron-icon>
 		    </template>
 		    <div class="adding">
-		  
-		   <form class="form-add">
-		      <div class="form-group">
+		  <!--<input  id="pAddress" label="Place Address" [(ngModel)] = "pAddress"  (setAddress) = "getAddress($event)" googleplace
+			     name="pAddress">-->
+		   <form class="form-add" [formGroup]="listForm" (ngSubmit)="submitForm(listForm.value)">
+		     <div class="form-group" [ngClass]="{'has-error':!listForm.controls['pCategory'].valid && listForm.controls['pCategory'].touched}">
 		      <label for="pCategory">Place Category</label>
-		      	<vaadin-combo-box id="pCategory" autofocus [label]="myLabel" [(value)]="pCategory" [items]="myItems">  </vaadin-combo-box>
+		      	<vaadin-combo-box id="pCategory" autofocus [label]="myLabel" [(value)]="pCategory" [items]="myItems" [formControl]="listForm.controls['pCategory']">  </vaadin-combo-box>
 		      	<!--<div prefix>$</div>-->
+		      <div *ngIf="listForm.controls['pCategory'].hasError('required') && listForm.controls['pCategory'].touched" class="alert alert-danger">You must select a place category</div>
 		      </div>
-              <google-maps-api id="maps" libraries="places" on-api-load="on_api_load"></google-maps-api>
-			  <div class="form-group">
+            
+			 <div class="form-group" [ngClass]="{'has-error':!listForm.controls['pAddress'].valid && listForm.controls['pAddress'].touched}">
 			    <label for="pAddress">Where is this place?</label>
 			     
-			    <paper-input id="pAddress" label="Place Address"  [(ngModel)] = "pAddress"  (setAddress) = "getAddress($event)" googleplace
-			     name="pAddress"></paper-input>
+			    <paper-input type="text" id="pAddress" label="Place Address" 
+			     name="pAddress" [formControl]="listForm.controls['pAddress']" [(ngModel)] = "pAddress"  (setAddress) = "getAddress($event)" googleplace></paper-input>
+			    <div *ngIf="listForm.controls['pAddress'].hasError('required') && listForm.controls['pAddress'].touched" class="alert alert-danger">You must include an address.</div>
+		        <div *ngIf="listForm.controls['pAddress'].hasError('minlength') && listForm.controls['pAddress'].touched" class="alert alert-danger">Your address must be at least 5 characters long.</div>
+		        <div *ngIf="listForm.controls['pAddress'].hasError('maxlength') && listForm.controls['pAddress'].touched" class="alert alert-danger">Your address cannot exceed 100 characters.</div>
 			  </div>
-			  <div class="form-group">
+			 <div class="form-group" [ngClass]="{'has-error':!listForm.controls['pName'].valid && listForm.controls['pName'].touched}">
 			    <label for="pName">Place Name</label>
-                <paper-input id="pName" label="Place Name" [(value)]="pName"></paper-input>
+                <paper-input id="pName" label="Place Name" [(value)]="pName" [formControl]="listForm.controls['pName']"></paper-input>
+                <div *ngIf="listForm.controls['pName'].hasError('required') && listForm.controls['pName'].touched" class="alert alert-danger">You must include an Place name.</div>
+		        <div *ngIf="listForm.controls['pName'].hasError('minlength') && listForm.controls['pName'].touched" class="alert alert-danger">Your place name must be at least 5 characters long.</div>
+		        <div *ngIf="listForm.controls['pName'].hasError('maxlength') && listForm.controls['pName'].touched" class="alert alert-danger">Your place name cannot exceed 50 characters.</div>
                 </div>
-              <button md-button md-raised-button color="primary" >Click Here To Add Place</button>
+              <button md-button md-raised-button color="primary" type="submit" [disabled]="!listForm.valid" >Click Here To Add Place</button>
 			</form>
 		    </div>
 		     <ul class="list-group">

@@ -1,7 +1,7 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
-import { FormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { PolymerElement } from '@vaadin/angular2-polymer';
 import {NgPipesModule} from 'ng2-pipes';
@@ -17,7 +17,7 @@ import { AdsenseModule } from 'ng2-adsense';
 import {RatingModule} from "ng2-rating";
 import { Header2Component } from './2-header/2-header.component';
 import {GoogleplaceDirective} from '../directives/google/googleplace.directive';
-
+import { PlacesService } from './services/places.service';
 
 
 @NgModule({
@@ -25,18 +25,20 @@ import {GoogleplaceDirective} from '../directives/google/googleplace.directive';
     BrowserModule,
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     PlacesRouting,
     AdsenseModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyBqIrNb1DLsN6oP97ua3YLMJx5-gUueWJU'
+      apiKey: 'AIzaSyBqIrNb1DLsN6oP97ua3YLMJx5-gUueWJU',
+      libraries: ['places']
     }),
      MaterialModule.forRoot(),
     RatingModule,
     NgPipesModule
   ],
   providers: [
-    
+    PlacesService
   ],
   declarations: [
     PlacesComponent,
