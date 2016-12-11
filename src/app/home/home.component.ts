@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   private _animator: AnimationBuilder;
   lat: number = 51.678418;
   lng: number = 7.809007;
-  
+ 
   constructor(
   	animationService: AnimationService,
   	private _elementRef: ElementRef,

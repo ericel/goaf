@@ -28,7 +28,6 @@ import { StickyDirective } from './directives/sticky.directive';
 import { PolymerElement } from '@vaadin/angular2-polymer';
 
 
-
 // Must export the config
 export const firebaseConfig = {
 
