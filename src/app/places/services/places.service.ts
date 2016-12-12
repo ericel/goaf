@@ -26,7 +26,7 @@ placeID: any;
    }
 
 	listPlaces(name, cat, add, lat, lng) {
-		this.places.set({
+  return this.places.set({
             placeID: this.placeID,
             placeName: name,
             placeCat: cat,
