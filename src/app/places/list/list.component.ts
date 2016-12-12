@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, NgModel } from '@angular/forms';
 import { PlacesService } from '../services/places.service';
-import {Md5} from 'ts-md5/dist/md5';
 import { MapsAPILoader } from 'angular2-google-maps/core';
 import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router'; 
+import { AngularFire, AuthProviders, AuthMethods, FirebaseObjectObservable } from 'angularfire2';
+import {Md5} from 'ts-md5/dist/md5';
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
@@ -15,6 +16,10 @@ export class ListComponent implements OnInit {
  lng: number;
  submitted = false;
  redirect = false;
+ uid: string;
+ username: string;
+ useremail: string;
+ placeID: any;
  public pAddress : Object;
 
 
@@ -22,6 +27,7 @@ export class ListComponent implements OnInit {
   starsCounts: number[] = [];
   myLabel = 'Select Place Category';
   pCategory = "Restaurant";
+  placeName: string;
   //pAddress = "3rd Floor, Roshamaer Place, P.O. Box 42441, Nairobi, Kenya";
   pName = "South Africa High Commission";
   myItems = ['Hotel', 'Restaurant', 'Office', 'Embassy', 'Education', 'Hostel', 'School', 'Hospital', 'Coffee', 'Park', 'Bus Station','Train Station', 'Government', 'Local', 'Airport'];
@@ -29,7 +35,8 @@ export class ListComponent implements OnInit {
      fb: FormBuilder,
      private _placesService: PlacesService,
      private _mapsAPILoader: MapsAPILoader,
-     private router: Router
+     private router: Router,
+     private af: AngularFire
     ) {
    this.listForm = fb.group({
       'pCategory' : [null, Validators.required],
@@ -41,7 +48,14 @@ export class ListComponent implements OnInit {
       //console.log('form changed to:', form);
     }
     );
-    
+    this.af.auth.subscribe((user) => { 
+    if (user) {
+      this.uid = user.uid;
+      this.username = user.auth.displayName;
+      this.useremail = user.auth.email;
+    }
+   });
+    this.placeID = Md5.hashStr(new Date() + this.uid + this.username + this.useremail);
   }
   
   ngOnInit() {
@@ -68,8 +82,8 @@ export class ListComponent implements OnInit {
          console.log("Address Object", this.pAddress);
    }
   submitForm(value: any){
-    
-    this._placesService.listPlaces(pName.value, pCategory.value, pAddress.value, this.lat, this.lng)
+    this.placeName = pName.value;
+    this._placesService.listPlaces(pName.value, pCategory.value, pAddress.value, this.lat, this.lng, this.placeID, this.uid, this.username)
     .then((success) => {
       this.submitted = true;
       console.log('success');
@@ -84,12 +98,20 @@ export class ListComponent implements OnInit {
         document.getElementById("countdown").innerHTML = "redirecting in: " + i;
         if (i === 0) {
             clearInterval(myinterval );
-             this.router.navigate(['/place/hee/hh']);
+             this.router.navigate([`/place/${this.placeID}/${this.convertToSlug(this.placeName)}`]);
         }
         else {
             i--;
         }
     }, 1000);
  }
+ convertToSlug(Text)
+{
+    return Text
+        .toLowerCase()
+        .replace(/[^\w ]+/g,'')
+        .replace(/ +/g,'-')
+        ;
+}
     
 }
