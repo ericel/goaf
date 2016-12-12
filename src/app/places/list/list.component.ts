@@ -13,6 +13,7 @@ export class ListComponent implements OnInit {
  listForm : FormGroup;
  lat: number;
  lng: number;
+ submitted = false;
  public pAddress : Object;
 
 
@@ -55,12 +56,15 @@ export class ListComponent implements OnInit {
          var location = place['geometry']['location'];
          this.lat =  location.lat();
          this.lng = location.lng();
-         console.log("Address Object", place);
+         console.log("Address Object", this.pAddress);
    }
   submitForm(value: any){
     console.log(this.pName);
     this._placesService.listPlaces(pName.value, pCategory.value, pAddress.value, this.lat, this.lng)
-    .then(_ => console.log('success'))
+    .then((success) => {
+      this.submitted = true;
+      console.log('success');
+    })
     .catch(err => console.log(err, 'You dont have access!'));
   }
   

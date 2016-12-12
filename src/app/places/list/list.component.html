@@ -8,6 +8,8 @@
 		    <template md-tab-label>
 		     Add a place <iron-icon icon="vaadin-icons:arrow-forward"></iron-icon>
 		    </template>
+		    <!--<div *ngIf="hideForm" class="animated fadeIn">-->
+		    <div  [hidden]="submitted">
 		    <div class="adding">
 		  <!--<input  id="pAddress" label="Place Address" [(ngModel)] = "pAddress"  (setAddress) = "getAddress($event)" googleplace
 			     name="pAddress">-->
@@ -37,6 +39,10 @@
                 </div>
               <button md-button md-raised-button color="primary" type="submit" [disabled]="!listForm.valid" >Click Here To Add Place</button>
 			</form>
+		    </div>
+		    </div>
+		    <div [hidden]="!submitted">
+		     form submitted!
 		    </div>
 		     <ul class="list-group">
 			  <li routerLink="/" class="list-group-item list-group-item-action">
