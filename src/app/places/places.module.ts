@@ -18,6 +18,7 @@ import {RatingModule} from "ng2-rating";
 import { Header2Component } from './2-header/2-header.component';
 import {GoogleplaceDirective} from '../directives/google/googleplace.directive';
 import { PlacesService } from './services/places.service';
+import { PlacetemplateComponent } from './placetemplate/placetemplate.component';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { PlacesService } from './services/places.service';
     Header2Component,
     PolymerElement('vaadin-combo-box'),
     PolymerElement('paper-input'),
-    GoogleplaceDirective     
+    GoogleplaceDirective,
+    PlacetemplateComponent     
   ],
   bootstrap: [PlacesComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

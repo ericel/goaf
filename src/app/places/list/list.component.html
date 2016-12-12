@@ -9,7 +9,7 @@
 		     Add a place <iron-icon icon="vaadin-icons:arrow-forward"></iron-icon>
 		    </template>
 		    
-		    <div  [hidden]="!submitted">
+		    <div  [hidden]="submitted">
 		    <div class="adding">
 		  <!--<input  id="pAddress" label="Place Address" [(ngModel)] = "pAddress"  (setAddress) = "getAddress($event)" googleplace
 			     name="pAddress">-->
@@ -41,7 +41,7 @@
 			</form>
 		    </div>
 		    </div>
-		    <div [hidden]="submitted" class="afteradd alert alert-success animated fadeIn">
+		    <div [hidden]="!submitted" class="afteradd alert alert-success animated fadeIn">
 		        <h1 class="animated bounceInUp h1"><i class="fa fa-thumbs-up animated swing" aria-hidden="true"></i> HURRAH!</h1>
 		        <P>Your Place has been successfully added</P>
 		        <h2>You will be redirected in a moment to  edit your listed place</h2>

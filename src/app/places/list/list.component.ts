@@ -50,6 +50,7 @@ export class ListComponent implements OnInit {
     //console.log(google);
     //this.lat = 51.678418;
     //this.lng = 7.809007;
+     
   }
 
   ngAfterViewInit() {
@@ -57,7 +58,7 @@ export class ListComponent implements OnInit {
     // Place your code in here...
     console.log(google);
     });
-    this.countDown()
+   
   }
   getAddress(place:Object) {       
         this.pAddress = place['formatted_address'];
@@ -72,17 +73,18 @@ export class ListComponent implements OnInit {
     .then((success) => {
       this.submitted = true;
       console.log('success');
+      this.countDown();
     })
     .catch(err => console.log(err, 'You dont have access!'));
   }
 
   countDown() {
     var i = 5;
-     var myinterval = setInterval(function() {
+     var myinterval = setInterval(() => {
         document.getElementById("countdown").innerHTML = "redirecting in: " + i;
         if (i === 0) {
             clearInterval(myinterval );
-            this.router.navigate(['/home']);
+             this.router.navigate(['/place/hee/hh']);
         }
         else {
             i--;

@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { PlacesComponent } from './places.component';
 import { ListComponent } from './list/list.component';
 import { AuthService } from '../auth/auth.service';
+import { PlaceComponent } from './place/place.component';
 const routes: Routes = [
    {
     path: 'places',
@@ -13,13 +14,14 @@ const routes: Routes = [
   }
   ,
   {
-    path: 'place/list',
+    path: 'places/list',
     component: ListComponent,
     canActivate: [AuthService],
     data: {
       title: 'List A Place'
     }
-  }
+  },
+  { path: 'place/:id/:string', component: PlaceComponent }
 ];
 
 /*@NgModule({
