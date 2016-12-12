@@ -71,3 +71,29 @@ vaadin-combo-box {
 .form-add button {
 	width: 100%;
 }
+.afteradd {
+	padding: 10px;
+	font-size: 1em;
+}
+.afteradd h1, .afteradd h2, .afteradd p, .afteradd .aligned {
+	text-align: center;
+}
+.afteradd h2 {
+	font-size: 1em;
+}
+.add_photos {
+	padding: 10px;
+	background: #fff;
+	border-radius: 4px;
+	border: 1px solid #044629;
+}
+#countdown {
+	font-style: italic;
+}
+.photos {
+	text-align: center;
+	padding: 20px 10px;
+}
+.h1 i{
+  color: #287bbc;
+}

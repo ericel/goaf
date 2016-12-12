@@ -8,8 +8,8 @@
 		    <template md-tab-label>
 		     Add a place <iron-icon icon="vaadin-icons:arrow-forward"></iron-icon>
 		    </template>
-		    <!--<div *ngIf="hideForm" class="animated fadeIn">-->
-		    <div  [hidden]="submitted">
+		    
+		    <div  [hidden]="!submitted">
 		    <div class="adding">
 		  <!--<input  id="pAddress" label="Place Address" [(ngModel)] = "pAddress"  (setAddress) = "getAddress($event)" googleplace
 			     name="pAddress">-->
@@ -41,8 +41,17 @@
 			</form>
 		    </div>
 		    </div>
-		    <div [hidden]="!submitted">
-		     form submitted!
+		    <div [hidden]="submitted" class="afteradd alert alert-success animated fadeIn">
+		        <h1 class="animated bounceInUp h1"><i class="fa fa-thumbs-up animated swing" aria-hidden="true"></i> HURRAH!</h1>
+		        <P>Your Place has been successfully added</P>
+		        <h2>You will be redirected in a moment to  edit your listed place</h2>
+                <div id="countdown" class="aligned"></div>
+                <div class="aligned add_photos">Go Ahead: <a routerLink="/">https://goaf.com/place/1c67711db8116af5a43775e2c8326077</a> to add place photos.</div>
+                <h3>Once in your place page:-</h3>
+                <ol>
+                	<li>You should add place photos</li>
+                	<li>Check to make sure your listed place location is correct</li>
+                </ol>
 		    </div>
 		     <ul class="list-group">
 			  <li routerLink="/" class="list-group-item list-group-item-action">
@@ -89,15 +98,19 @@
     <template md-tab-label>
       Photos
     </template>
-    <h1>Terrible sushi restaurants</h1>
-    <p>...</p>
+    <div class="photos">
+	    <h1>{{pName}} Photos Will Appear Here</h1>
+	    <button md-button md-raised-button color="primary">Add Photos</button>
+    </div>
   </md-tab>
    <md-tab>
     <template md-tab-label>
       Reviews
     </template>
-    <h1>Terrible sushi restaurants</h1>
-    <p>...</p>
+     <div class="photos">
+	    <h1>{{pName}} Reviews Here</h1>
+	    <button md-button md-raised-button color="primary">Add Photos</button>
+    </div>
   </md-tab>
 </md-tab-group>
 		

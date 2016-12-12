@@ -31,4 +31,5 @@ export class HomeComponent implements OnInit, AfterViewInit {
       .setDuration(700)
       .show(this._elementRef.nativeElement);*/
   }
+  
 }
