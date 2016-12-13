@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, NgModel } from '@angular/forms';
 import { PlacesService } from '../services/places.service';
-import { MapsAPILoader } from 'angular2-google-maps/core';
 import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router'; 
 import { AngularFire, AuthProviders, AuthMethods, FirebaseObjectObservable } from 'angularfire2';
 import {Md5} from 'ts-md5/dist/md5';
@@ -10,31 +9,29 @@ import {Md5} from 'ts-md5/dist/md5';
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css']
 })
-export class ListComponent implements OnInit {
+export class ListComponent implements OnInit, AfterViewInit {
  listForm : FormGroup;
- lat: number;
- lng: number;
+ lat: number = 51.678418;
+ lng: number = 7.809007;
  submitted = false;
- redirect = false;
  uid: string;
  username: string;
  useremail: string;
  placeID: any;
  public pAddress : Object;
-
-
+ pName: string;
+ 
   starsCount: number;
   starsCounts: number[] = [];
   myLabel = 'Select Place Category';
   pCategory = "Restaurant";
   placeName: string;
-  //pAddress = "3rd Floor, Roshamaer Place, P.O. Box 42441, Nairobi, Kenya";
-  pName = "South Africa High Commission";
+
+ 
   myItems = ['Hotel', 'Restaurant', 'Office', 'Embassy', 'Education', 'Hostel', 'School', 'Hospital', 'Coffee', 'Park', 'Bus Station','Train Station', 'Government', 'Local', 'Airport'];
   constructor(
      fb: FormBuilder,
      private _placesService: PlacesService,
-     private _mapsAPILoader: MapsAPILoader,
      private router: Router,
      private af: AngularFire
     ) {
@@ -60,26 +57,17 @@ export class ListComponent implements OnInit {
   
   ngOnInit() {
   	this.starsCount = 2.5;
-    //console.log(this.myValue);
-    //console.log(google);
-    //this.lat = 51.678418;
-    //this.lng = 7.809007;
      
   }
 
   ngAfterViewInit() {
-    this._mapsAPILoader.load().then(() => {
-    // Place your code in here...
-    console.log(google);
-    });
-   
+    
   }
   getAddress(place:Object) {       
         this.pAddress = place['formatted_address'];
          var location = place['geometry']['location'];
          this.lat =  location.lat();
          this.lng = location.lng();
-         console.log("Address Object", this.pAddress);
    }
   submitForm(value: any){
     this.placeName = pName.value;
@@ -106,12 +94,12 @@ export class ListComponent implements OnInit {
     }, 1000);
  }
  convertToSlug(Text)
-{
-    return Text
-        .toLowerCase()
-        .replace(/[^\w ]+/g,'')
-        .replace(/ +/g,'-')
-        ;
-}
+  {
+      return Text
+          .toLowerCase()
+          .replace(/[^\w ]+/g,'')
+          .replace(/ +/g,'-')
+          ;
+  }
     
 }

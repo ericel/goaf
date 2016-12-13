@@ -7,17 +7,17 @@
 		    <template md-tab-label>
 		      Goaf Places
 		    </template>
-		     <ul class="list-group">
+		     <ul class="list-group" *ngIf="place">
 			  <li routerLink="/auth" class="list-group-item list-group-item-action">
-			    <h1 class="list-group-item-heading">South Africa High Commission</h1>
+			    <h1 class="list-group-item-heading">{{place.placeName}}</h1>
 			    <rating [(ngModel)]="starsCount"
 			            [titles]="['one', 'two', 'three', 'four', 'five']" [float]="true">
 			    </rating>
 			    <div class="more-l">
-			    <small><i class="fa fa-map-marker" aria-hidden="true"></i> Embassy</small>
+			    <small><i class="fa fa-map-marker" aria-hidden="true"></i> {{place.placeCat}}</small>
 			    <small><i class="fa fa-link" aria-hidden="true"></i> website</small>
 			    </div>
-			    <address class="list-group-item-text"><span>Address:</span> 3rd Floor, Roshamaer Place, P.O. Box 42441, Nairobi, Kenya</address>
+			    <address class="list-group-item-text"><span>Address:</span> {{place.placeAdd}}</address>
                 <p class="list-group-item-text"><span>Hours:</span> Open today · 8AM–5PM</p>
 			    
 
@@ -26,84 +26,13 @@
 		                [float]="true">
 		        </rating>
 		        </div>-->
-			  </li>
-			  <li routerLink="/auth" class="list-group-item list-group-item-action">
-			    <h1 class="list-group-item-heading">South Africa High Commission</h1>
-			    <rating [(ngModel)]="starsCount"
-			            [titles]="['one', 'two', 'three', 'four', 'five']" [float]="true">
-			    </rating>
-			    <div class="more-l">
-			    <small><i class="fa fa-map-marker" aria-hidden="true"></i> Embassy</small>
-			    <small><i class="fa fa-link" aria-hidden="true"></i> website</small>
-			    </div>
-			    <address class="list-group-item-text"><span>Address:</span> 3rd Floor, Roshamaer Place, P.O. Box 42441, Nairobi, Kenya</address>
-                <p class="list-group-item-text"><span>Hours:</span> Open today · 8AM–5PM</p>
-			    
-
-			    <!--<div *ngFor="let item of [1, 2, 3]; let index = index">
-		        <rating [(ngModel)]="starsCounts[index]"
-		                [float]="true">
-		        </rating>
-		        </div>-->
-			  </li>
-			  <li routerLink="/auth" class="list-group-item list-group-item-action">
-			    <h1 class="list-group-item-heading">South Africa High Commission</h1>
-			    <rating [(ngModel)]="starsCount"
-			            [titles]="['one', 'two', 'three', 'four', 'five']" [float]="true">
-			    </rating>
-			    <div class="more-l">
-			    <small><i class="fa fa-map-marker" aria-hidden="true"></i> Embassy</small>
-			    <small><i class="fa fa-link" aria-hidden="true"></i> website</small>
-			    </div>
-			    <address class="list-group-item-text"><span>Address:</span> 3rd Floor, Roshamaer Place, P.O. Box 42441, Nairobi, Kenya</address>
-                <p class="list-group-item-text"><span>Hours:</span> Open today · 8AM–5PM</p>
-			    
-
-			    <!--<div *ngFor="let item of [1, 2, 3]; let index = index">
-		        <rating [(ngModel)]="starsCounts[index]"
-		                [float]="true">
-		        </rating>
-		        </div>-->
-			  </li>
-			  <li routerLink="/auth" class="list-group-item list-group-item-action">
-			    <h1 class="list-group-item-heading">South Africa High Commission</h1>
-			    <rating [(ngModel)]="starsCount"
-			            [titles]="['one', 'two', 'three', 'four', 'five']" [float]="true">
-			    </rating>
-			    <div class="more-l">
-			    <small><i class="fa fa-map-marker" aria-hidden="true"></i> Embassy</small>
-			    <small><i class="fa fa-link" aria-hidden="true"></i> website</small>
-			    </div>
-			    <address class="list-group-item-text"><span>Address:</span> 3rd Floor, Roshamaer Place, P.O. Box 42441, Nairobi, Kenya</address>
-                <p class="list-group-item-text"><span>Hours:</span> Open today · 8AM–5PM</p>
-			    
-
-			    <!--<div *ngFor="let item of [1, 2, 3]; let index = index">
-		        <rating [(ngModel)]="starsCounts[index]"
-		                [float]="true">
-		        </rating>
-		        </div>-->
-			  </li>
-			  <li routerLink="/auth" class="list-group-item list-group-item-action">
-			    <h1 class="list-group-item-heading">South Africa High Commission</h1>
-			    <rating [(ngModel)]="starsCount"
-			            [titles]="['one', 'two', 'three', 'four', 'five']" [float]="true">
-			    </rating>
-			    <div class="more-l">
-			    <small><i class="fa fa-map-marker" aria-hidden="true"></i> Embassy</small>
-			    <small><i class="fa fa-link" aria-hidden="true"></i> website</small>
-			    </div>
-			    <address class="list-group-item-text"><span>Address:</span> 3rd Floor, Roshamaer Place, P.O. Box 42441, Nairobi, Kenya</address>
-                <p class="list-group-item-text"><span>Hours:</span> Open today · 8AM–5PM</p>
-			    
-
-			    <!--<div *ngFor="let item of [1, 2, 3]; let index = index">
-		        <rating [(ngModel)]="starsCounts[index]"
-		                [float]="true">
-		        </rating>
-		        </div>-->
-			  </li>
+			  </li> 
+			
 		</ul>
+		    <ng2-adsense
+			  [adClient]="'ca-pub-2243338195594977'"
+			  [adSlot]="7581452770">
+			</ng2-adsense>
 		  </md-tab>
 		  <md-tab>
 		    <template md-tab-label>
@@ -129,9 +58,9 @@
       Place Map
     </template>
     <ng2-adsense
-  [adClient]="'ca-pub-2243338195594977'"
-  [adSlot]="7979162777">
-</ng2-adsense>
+	  [adClient]="'ca-pub-2243338195594977'"
+	  [adSlot]="7979162777">
+	</ng2-adsense>
    <sebm-google-map class="animated bounce" [latitude]="lat" [longitude]="lng">
             <sebm-google-map-marker [latitude]="lat" [longitude]="lng"></sebm-google-map-marker>
         </sebm-google-map>

@@ -6,9 +6,10 @@ import { AngularFire, AuthProviders, AuthMethods, FirebaseObjectObservable } fro
 @Injectable()
 export class PlacesService {
 places: FirebaseObjectObservable<any>;
+placesAll: FirebaseObjectObservable<any>;
 
   constructor(private af: AngularFire) {
-    
+     this.placesAll = af.database.object('goaf-list-places', { preserveSnapshot: true });
    }
 
 	listPlaces(name, cat, add, lat, lng, placeID, uid, username ) {
@@ -26,5 +27,18 @@ places: FirebaseObjectObservable<any>;
             listDate: firebase.database.ServerValue.TIMESTAMP
         });
 	} 
+
+  // Get Place by ID
+  findPetById(id: string){
+  
+   return this.placesAll.map(snapshot => {
+      
+      let allPlaces = snapshot.val();
+      return allPlaces[id];
+      
+      
+    });
+ 
+  }
 }
 
