@@ -19,7 +19,8 @@ import { Header2Component } from './2-header/2-header.component';
 import {GoogleplaceDirective} from '../directives/google/googleplace.directive';
 import { PlacesService } from './services/places.service';
 import { PlacetemplateComponent } from './placetemplate/placetemplate.component';
-
+import {ImageModal} from '../directives/angular2-image-popup/image-modal-popup';
+import { GalleryComponent } from './gallery/gallery.component';
 
 @NgModule({
   imports: [
@@ -52,7 +53,9 @@ import { PlacetemplateComponent } from './placetemplate/placetemplate.component'
     PolymerElement('vaadin-combo-box'),
     PolymerElement('paper-input'),
     GoogleplaceDirective,
-    PlacetemplateComponent     
+    ImageModal,
+    PlacetemplateComponent,
+    GalleryComponent     
   ],
   bootstrap: [PlacesComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { ActivatedRoute, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { PlacesService } from '../services/places.service';
@@ -14,7 +14,24 @@ export class PlaceComponent implements OnInit {
   private sub:any;
   public place: any;
   starsCount: number;
-  constructor(private route: ActivatedRoute, private _placesService: PlacesService) { }
+ 
+  @Input() datasource;
+   selectedImage;
+   images:any;
+  constructor(private route: ActivatedRoute, private _placesService: PlacesService) { 
+    this.images = [
+      {"url":"./assets/images/design/list.jpg"},
+      {"url":"./assets/images/design/room.jpeg"},
+      {"url":"./assets/images/design/list.jpg"},
+      {"url":"./assets/images/design/room.jpeg"},
+      {"url":"./assets/images/design/list.jpg"},
+      {"url":"./assets/images/design/room.jpeg"},
+      {"url":"./assets/images/design/list.jpg"},
+      {"url":"./assets/images/design/room.jpeg"},
+      {"url":"./assets/images/design/list.jpg"},
+      {"url":"./assets/images/design/room.jpeg"}
+      ];
+  }
 
   ngOnInit() {
   	this.starsCount = 2.5;
@@ -31,11 +48,12 @@ export class PlaceComponent implements OnInit {
 
     });
 
-    /*this.place.getUserData().subscribe(userData => {
-      this.username = userData.username;
-      this.photoUrl = userData.photoUrl;
-    });*/
+    
   }
+   setSelectedImage(image){
+      this.selectedImage= image;  
+   }
+
    ngOnDestroy() {
       // Clean sub to avoid memory leak
     this.sub.unsubscribe();

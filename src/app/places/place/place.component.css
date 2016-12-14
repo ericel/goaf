@@ -43,3 +43,15 @@ h1.list-group-item-heading{
 .more-l small{
 	margin-right: 15px;
 }
+
+
+.gallery-place ul { padding:0; width:780px; margin:20px auto}
+.gallery-place ulli { display:inline;}
+.gallery-place ul .tn{ 
+	   margin:2px 0px;
+	   box-shadow:#999 1px 1px 3px 1px; 
+	   cursor: pointer 
+        }
+.gallery-place ul .modal-content {
+	    width: 670px !important;
+	}

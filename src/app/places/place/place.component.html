@@ -1,6 +1,25 @@
 <app-header></app-header>
 <main class="container-fluid">
  <div class="row"> 
+ <div class="gallery-place">
+ <div class="modal fade" id="selectedImageModal" >
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-body">
+	         <img *ngIf="selectedImage" src="{{selectedImage.url}}" >
+	      </div>
+	    </div>
+	  </div>
+	</div>
+  	<ul id="thumbnailsList">
+  	   <li *ngFor="let image of datasource" >
+  	      <img src="{{image.url}}" class="tn"
+  		  width="191" height="146"  
+  		  data-toggle="modal" data-target="#selectedImageModal"
+                  (click)=setSelectedImage(image)>
+  	   </li>
+  	</ul>
+  	</div>
 	<div class="col-md-6">
 	    <md-tab-group>
 		  <md-tab>
@@ -26,7 +45,7 @@
 		                [float]="true">
 		        </rating>
 		        </div>-->
-			  </li> 
+			  </li>
 			
 		</ul>
 		    <ng2-adsense
@@ -69,8 +88,7 @@
     <template md-tab-label>
       Photos
     </template>
-    <h1>Terrible sushi restaurants</h1>
-    <p>...</p>
+     	
   </md-tab>
    <md-tab>
     <template md-tab-label>
