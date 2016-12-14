@@ -1,3 +1,25 @@
-<p>
-  gallery works!
-</p>
+ <div class="gallery-place">
+ <div class="modal fade" id="selectedImageModal" >
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-body">
+	         <div class="selectedImage" *ngIf="selectedImage">
+			   <img src="{{selectedImage.url}}" >
+			   <div class="caption">
+			      <p><strong>{{selectedImage.title}}</strong></p>
+			      <p>{{selectedImage.caption}}</p>
+			   </div>
+			</div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+  	<ul id="thumbnailsList">
+  	   <li *ngFor="let image of datasource" >
+  	      <img src="{{image.url}}" class="tn"
+  		  width="191" height="146"  
+  		  data-toggle="modal" data-target="#selectedImageModal"
+                  (click)=setSelectedImage(image)>
+  	   </li>
+  	</ul>
+  	</div>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { ActivatedRoute, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { PlacesService } from '../services/places.service';
@@ -14,22 +14,38 @@ export class PlaceComponent implements OnInit {
   private sub:any;
   public place: any;
   starsCount: number;
- 
-  @Input() datasource;
-   selectedImage;
+
    images:any;
   constructor(private route: ActivatedRoute, private _placesService: PlacesService) { 
     this.images = [
-      {"url":"./assets/images/design/list.jpg"},
-      {"url":"./assets/images/design/room.jpeg"},
-      {"url":"./assets/images/design/list.jpg"},
-      {"url":"./assets/images/design/room.jpeg"},
-      {"url":"./assets/images/design/list.jpg"},
-      {"url":"./assets/images/design/room.jpeg"},
-      {"url":"./assets/images/design/list.jpg"},
-      {"url":"./assets/images/design/room.jpeg"},
-      {"url":"./assets/images/design/list.jpg"},
-      {"url":"./assets/images/design/room.jpeg"}
+      {"url":"./assets/images/design/list.jpg",
+       "title":"Aliquam erat volutpat",
+       "caption":"imperdiet imperdiet. Nullam ut ligula vitae arcu vulputate dictum ut quis elit."
+      },
+      {"url":"./assets/images/design/room.jpeg",
+       "title":"Aliquam erat volutpat",
+       "caption":"imperdiet imperdiet. Nullam ut ligula vitae arcu vulputate dictum ut quis elit."
+      },
+      {"url":"./assets/images/design/list.jpg",
+       "title":"Aliquam erat volutpat",
+       "caption":"imperdiet imperdiet. Nullam ut ligula vitae arcu vulputate dictum ut quis elit."
+      },
+      {"url":"./assets/images/design/room.jpeg",
+       "title":"Aliquam erat volutpat",
+       "caption":"imperdiet imperdiet. Nullam ut ligula vitae arcu vulputate dictum ut quis elit."
+      },
+      {"url":"./assets/images/design/list.jpg",
+        "title":"Aliquam erat volutpat",
+       "caption":"imperdiet imperdiet. Nullam ut ligula vitae arcu vulputate dictum ut quis elit."
+      },
+      {"url":"./assets/images/design/room.jpeg",
+        "title":"Aliquam erat volutpat",
+       "caption":"imperdiet imperdiet. Nullam ut ligula vitae arcu vulputate dictum ut quis elit."
+      },
+      {"url":"./assets/images/design/list.jpg",
+        "title":"Aliquam erat volutpat",
+       "caption":"imperdiet imperdiet. Nullam ut ligula vitae arcu vulputate dictum ut quis elit."
+      }
       ];
   }
 
@@ -50,9 +66,6 @@ export class PlaceComponent implements OnInit {
 
     
   }
-   setSelectedImage(image){
-      this.selectedImage= image;  
-   }
 
    ngOnDestroy() {
       // Clean sub to avoid memory leak
