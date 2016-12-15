@@ -6,11 +6,11 @@
 	    <md-tab-group>
 		  <md-tab>
 		    <template md-tab-label>
-		      Goaf Places
+		      Goaf Place
 		    </template>
 		     <ul class="list-group" *ngIf="place">
 			  <li routerLink="/auth" class="list-group-item list-group-item-action">
-			    <h1 class="list-group-item-heading">{{place.placeName}}</h1>
+			    <h1 class="list-group-item-heading">{{place.placeName}} <span class="canEditBtn pull-right"><button md-button  *ngIf="canEdit" data-toggle="modal" data-target="#editPlace"><i class="fa fa-pencil" aria-hidden="true"></i></button></span></h1>
 			    <rating [(ngModel)]="starsCount"
 			            [titles]="['one', 'two', 'three', 'four', 'five']" [float]="true">
 			    </rating>
@@ -20,36 +20,19 @@
 			    </div>
 			    <address class="list-group-item-text"><span>Address:</span> {{place.placeAdd}}</address>
                 <p class="list-group-item-text"><span>Hours:</span> Open today · 8AM–5PM</p>
-			    
-
-			    <!--<div *ngFor="let item of [1, 2, 3]; let index = index">
-		        <rating [(ngModel)]="starsCounts[index]"
-		                [float]="true">
-		        </rating>
-		        </div>-->
 			  </li>
 			
 		</ul>
 
 		  </md-tab>
-		  <md-tab>
-		    <template md-tab-label>
-		      Photos
-		    </template>
-		   
-		  </md-tab>
-		   <md-tab>
-		    <template md-tab-label>
-		      Reviews
-		    </template>
-		    <h1>Terrible sushi restaurants</h1>
-		    <p>...</p>
-		  </md-tab>
+		 
 		</md-tab-group>
+		<div class="margin10"></div>
 		 <ng2-adsense
 			  [adClient]="'ca-pub-2243338195594977'"
 			  [adSlot]="7581452770">
 			</ng2-adsense>
+
 		 <app-gallery [datasource]=images></app-gallery>	
 	</div>
 	<div class="col-md-6" id="item_2">
@@ -58,10 +41,12 @@
     <template md-tab-label>
       Place Map
     </template>
+    <div class="card-me">
     <ng2-adsense
 	  [adClient]="'ca-pub-2243338195594977'"
 	  [adSlot]="7979162777">
 	</ng2-adsense>
+	</div>
    <sebm-google-map class="animated bounce" [latitude]="lat" [longitude]="lng">
             <sebm-google-map-marker [latitude]="lat" [longitude]="lng"></sebm-google-map-marker>
         </sebm-google-map>
@@ -70,7 +55,12 @@
     <template md-tab-label>
       Photos
     </template>
-     
+        <vaadin-upload max-files="3" accept="image/*" max-file-size="1000000">
+        <div class="drop-label">
+          <iron-icon icon="file-upload"></iron-icon>
+          Accepts up to 8 image files, up to 1 MB each
+        </div>
+      </vaadin-upload>
   </md-tab>
    <md-tab>
     <template md-tab-label>
@@ -85,3 +75,60 @@
   </div>
 </main>
 <app-footer></app-footer>
+
+	<div class="modal fade animated bounceInUp" id="editPlace" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog"  role="document">
+	    <div class="modal-content">
+	     <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="gridModalLabel">Edit Goaf Place</h4>
+        </div>
+	      <div class="modal-body">
+            <div  [hidden]="submitted">
+		    <div class="adding">
+		  <!--<input  id="pAddress" label="Place Address" [(ngModel)] = "pAddress"  (setAddress) = "getAddress($event)" googleplace
+			     name="pAddress">-->
+		   <form class="form-add" [formGroup]="listForm" (ngSubmit)="submitForm(listForm.value)">
+		     <div class="form-group" [ngClass]="{'has-error':!listForm.controls['pCategory'].valid && listForm.controls['pCategory'].touched}">
+		      <label for="pCategory">Place Category</label>
+		      	<vaadin-combo-box id="pCategory" autofocus [label]="myLabel" [(value)]="pCategory" [items]="myItems" [formControl]="listForm.controls['pCategory']">  </vaadin-combo-box>
+		      	<!--<div prefix>$</div>-->
+		      <div *ngIf="listForm.controls['pCategory'].hasError('required') && listForm.controls['pCategory'].touched" class="alert alert-danger">You must select a place category</div>
+		      </div>
+            
+			 <div class="form-group" [ngClass]="{'has-error':!listForm.controls['pAddress'].valid && listForm.controls['pAddress'].touched}">
+			    <label for="pAddress">Where is this place?</label>
+			     
+			    <paper-input type="text" id="pAddress" label="Place Address" 
+			     name="pAddress" [formControl]="listForm.controls['pAddress']" [(ngModel)] = "pAddress"  (setAddress) = "getAddress($event)" googleplace></paper-input>
+			    <div *ngIf="listForm.controls['pAddress'].hasError('required') && listForm.controls['pAddress'].touched" class="alert alert-danger">You must include an address.</div>
+		        <div *ngIf="listForm.controls['pAddress'].hasError('minlength') && listForm.controls['pAddress'].touched" class="alert alert-danger">Your address must be at least 5 characters long.</div>
+		        <div *ngIf="listForm.controls['pAddress'].hasError('maxlength') && listForm.controls['pAddress'].touched" class="alert alert-danger">Your address cannot exceed 100 characters.</div>
+			  </div>
+			 <div class="form-group" [ngClass]="{'has-error':!listForm.controls['pName'].valid && listForm.controls['pName'].touched}">
+			    <label for="pName">Place Name</label>
+                <paper-input id="pName" label="Place Name" [(value)]="pName" [formControl]="listForm.controls['pName']"></paper-input>
+                <div *ngIf="listForm.controls['pName'].hasError('required') && listForm.controls['pName'].touched" class="alert alert-danger">You must include an Place name.</div>
+		        <div *ngIf="listForm.controls['pName'].hasError('minlength') && listForm.controls['pName'].touched" class="alert alert-danger">Your place name must be at least 5 characters long.</div>
+		        <div *ngIf="listForm.controls['pName'].hasError('maxlength') && listForm.controls['pName'].touched" class="alert alert-danger">Your place name cannot exceed 50 characters.</div>
+                </div>
+              <button md-button md-raised-button color="primary" type="submit" [disabled]="!listForm.valid" >Click Here To Add Place</button>
+			</form>
+		    </div>
+		    </div>
+		    <div [hidden]="!submitted" class="afteradd alert alert-success animated fadeIn">
+		        <h1 class="animated bounceInUp h1"><i class="fa fa-thumbs-up animated swing" aria-hidden="true"></i> HURRAH!</h1>
+		        <P>Your Place has been successfully added</P>
+		        <h2>You will be redirected in a moment to  edit your listed place</h2>
+                <div id="countdown" class="aligned"></div>
+                <div class="aligned add_photos">Go Ahead: <a routerLink="/">https://goaf.com/place/1c67711db8116af5a43775e2c8326077</a> to add place photos.</div>
+                <h3>Once in your place page:-</h3>
+                <ol>
+                	<li>You should add place photos</li>
+                	<li>Check to make sure your listed place location is correct</li>
+                </ol>
+		    </div>
+	      </div>
+	    </div>
+	  </div>
+	</div>

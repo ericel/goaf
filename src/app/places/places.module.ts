@@ -52,6 +52,7 @@ import { GalleryComponent } from './gallery/gallery.component';
     Header2Component,
     PolymerElement('vaadin-combo-box'),
     PolymerElement('paper-input'),
+    PolymerElement('vaadin-upload'),
     GoogleplaceDirective,
     ImageModal,
     PlacetemplateComponent,

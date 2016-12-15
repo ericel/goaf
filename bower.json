@@ -18,6 +18,8 @@
   "dependencies": {
     "paper-elements": "^1.0.7",
     "vaadin-combo-box": "^1.1.5",
-    "google-map": "GoogleWebComponents/google-map#^1.1.14"
+    "google-map": "GoogleWebComponents/google-map#^1.1.14",
+    "vaadin-upload": "^1.1.0",
+    "iron-icons": "PolymerElements/iron-icons#^1.2.0"
   }
 }

@@ -54,7 +54,7 @@ const myFirebaseAuthConfig = {
     FooterComponent,
     StickyDirective,
     PolymerElement('vaadin-combo-box'),
-    PolymerElement('paper-input')
+    PolymerElement('paper-input'),
   ],
   imports: [
     BrowserModule,

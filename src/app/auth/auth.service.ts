@@ -25,6 +25,7 @@ export class AuthService implements CanActivate{
   isLoggedIn: any;
   usersArray: any; 
   usersArrayVal: {};
+
   //private isloggedIn:Subject 
   private isloggedIn = new BehaviorSubject(false);
   constructor(private af: AngularFire, private router: Router) { 
@@ -43,7 +44,7 @@ export class AuthService implements CanActivate{
       return false;
     }
    });
-  
+   
    this.users = af.database.object('/goaf-users', { preserveSnapshot: true });
 
    this.usersArray = this.users.map((snapshot) => {
@@ -97,6 +98,15 @@ updateUserInfo() {
          }
       }
     }); 
+}
+loggedInID (){
+ return this.af.auth.map((user) => { // map instead of subscribe
+    if (user) {
+      return this.uid = user.uid;
+    } else {
+      return false;
+    }
+  });
 }
 getUserData() {
 

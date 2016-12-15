@@ -59,3 +59,16 @@ h1.list-group-item-heading{
 
 	}
 }
+.canEditBtn [md-button]{
+	min-width: 0px !important;
+     line-height: 0px !important; 
+    padding: 0 !important; 
+
+}
+.card-me {
+	background: #fff;
+	padding:0 !important;
+}
+.margin10 {
+	margin-top: 10px;
+}
