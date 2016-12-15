@@ -1,7 +1,8 @@
 <app-header></app-header>
 <main class="container-fluid">
- <div class="row"> 
-	<div class="col-md-6">
+ <div class="row" id="xs-container"> 
+
+	<div class="col-md-6" id="item_1">
 	    <md-tab-group>
 		  <md-tab>
 		    <template md-tab-label>
@@ -29,17 +30,13 @@
 			  </li>
 			
 		</ul>
-		    <ng2-adsense
-			  [adClient]="'ca-pub-2243338195594977'"
-			  [adSlot]="7581452770">
-			</ng2-adsense>
+
 		  </md-tab>
 		  <md-tab>
 		    <template md-tab-label>
 		      Photos
 		    </template>
-		    <h1>Terrible sushi restaurants</h1>
-		    <p>...</p>
+		   
 		  </md-tab>
 		   <md-tab>
 		    <template md-tab-label>
@@ -49,9 +46,13 @@
 		    <p>...</p>
 		  </md-tab>
 		</md-tab-group>
-		
+		 <ng2-adsense
+			  [adClient]="'ca-pub-2243338195594977'"
+			  [adSlot]="7581452770">
+			</ng2-adsense>
+		 <app-gallery [datasource]=images></app-gallery>	
 	</div>
-	<div class="col-md-6">
+	<div class="col-md-6" id="item_2">
 	<md-tab-group>
   <md-tab>
     <template md-tab-label>
@@ -69,7 +70,7 @@
     <template md-tab-label>
       Photos
     </template>
-     <app-gallery [datasource]=images></app-gallery>	
+     
   </md-tab>
    <md-tab>
     <template md-tab-label>

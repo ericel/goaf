@@ -17,6 +17,24 @@ export class PlaceComponent implements OnInit {
 
    images:any;
   constructor(private route: ActivatedRoute, private _placesService: PlacesService) { 
+  }
+
+  ngOnInit() {
+  	this.starsCount = 2.5;
+    this.sub = this.route.params.subscribe(params => {
+        let id = params['id'];
+        let str = params['string'];
+       // Retrieve Pet with Id route param
+       this._placesService.findPetById(id).subscribe(place => {
+         this.place = place;
+         this.lat = this.place.lat;
+         this.lng = this.place.lng;
+         this.starsCount = this.place.rating;
+       });
+
+    });
+   
+   
     this.images = [
       {"url":"./assets/images/design/list.jpg",
        "title":"Aliquam erat volutpat",
@@ -46,25 +64,7 @@ export class PlaceComponent implements OnInit {
         "title":"Aliquam erat volutpat",
        "caption":"imperdiet imperdiet. Nullam ut ligula vitae arcu vulputate dictum ut quis elit."
       }
-      ];
-  }
-
-  ngOnInit() {
-  	this.starsCount = 2.5;
-    this.sub = this.route.params.subscribe(params => {
-        let id = params['id'];
-        let str = params['string'];
-       // Retrieve Pet with Id route param
-       this._placesService.findPetById(id).subscribe(place => {
-         this.place = place;
-         this.lat = this.place.lat;
-         this.lng = this.place.lng;
-         this.starsCount = this.place.rating;
-       });
-
-    });
-
-    
+      ]; 
   }
 
    ngOnDestroy() {

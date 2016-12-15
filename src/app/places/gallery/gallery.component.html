@@ -1,14 +1,25 @@
  <div class="gallery-place">
- <div class="modal fade" id="selectedImageModal" >
-	  <div class="modal-dialog" role="document">
+	<!-- Modal -->
+	<div class="modal fade" id="selectedImageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog "  role="document">
+	  <button type="button"  class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
 	    <div class="modal-content">
 	      <div class="modal-body">
-	         <div class="selectedImage" *ngIf="selectedImage">
+
+	        <div class="selectedImage" *ngIf="selectedImage">
 			   <img src="{{selectedImage.url}}" >
-			   <div class="caption">
+			   <div class="arrow-back" style="z-index: 99999;top: 49%; position: absolute;left: 0;opacity:0.9;background-color:black;padding:10px; color:#fff; font-weight: bold;" (click)=navigate(false)>
+			      <i class="fa fa-arrow-left" aria-hidden="true"></i>
+			   </div>
+			   <div class="arrow-forward" style="z-index: 99999;top: 49%; position: absolute;right: 0;opacity:0.9;background-color:black;padding:10px; color:#fff; font-weight: bold;" (click)=navigate(true)>
+			      <i class="fa fa-arrow-right" aria-hidden="true"></i>
+			   </div>
+			  <!-- <div class="caption">
 			      <p><strong>{{selectedImage.title}}</strong></p>
 			      <p>{{selectedImage.caption}}</p>
-			   </div>
+			   </div>-->
 			</div>
 	      </div>
 	    </div>
@@ -16,8 +27,7 @@
 	</div>
   	<ul id="thumbnailsList">
   	   <li *ngFor="let image of datasource" >
-  	      <img src="{{image.url}}" class="tn"
-  		  width="191" height="146"  
+  	      <img src="{{image.url}}" class="tn" 
   		  data-toggle="modal" data-target="#selectedImageModal"
                   (click)=setSelectedImage(image)>
   	   </li>
