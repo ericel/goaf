@@ -42,15 +42,19 @@
     <template md-tab-label>
       Place Map
     </template>
-    <div class="card-me">
+    <div id="xs-re-container">
+    <div class="card-me" id="ads_item">
     <ng2-adsense
 	  [adClient]="'ca-pub-2243338195594977'"
 	  [adSlot]="7979162777">
 	</ng2-adsense>
 	</div>
-   <sebm-google-map class="animated bounce" [latitude]="lat" [longitude]="lng">
+	<div id="map_item">
+       <sebm-google-map class="animated bounceInDown" [latitude]="lat" [longitude]="lng">
             <sebm-google-map-marker [latitude]="lat" [longitude]="lng"></sebm-google-map-marker>
         </sebm-google-map>
+    </div>
+    </div>
   </md-tab>
   <md-tab>
     <template md-tab-label>
@@ -73,6 +77,14 @@
 </md-tab-group>
 		
 	</div>
+  </div>
+  <div class="row related-places">
+     <div class="col-md-6">
+     dddd
+     </div>
+     <div class="col-md-6">
+     dddd
+     </div>
   </div>
 </main>
 <app-footer></app-footer>

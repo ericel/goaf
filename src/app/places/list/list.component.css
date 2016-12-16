@@ -74,6 +74,7 @@ vaadin-combo-box {
 .afteradd {
 	padding: 10px;
 	font-size: 1em;
+	margin-top: 15px;
 }
 .afteradd h1, .afteradd h2, .afteradd p, .afteradd .aligned {
 	text-align: center;

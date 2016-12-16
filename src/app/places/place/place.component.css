@@ -43,7 +43,10 @@ h1.list-group-item-heading{
 .more-l small{
 	margin-right: 15px;
 }
-
+.card-me {
+	background: #fff;
+	padding:0 !important;
+}
 @media screen and (max-width: 768px){
 	#xs-container {
 		 display:flex; flex-direction: column;
@@ -58,6 +61,18 @@ h1.list-group-item-heading{
 	  height: 150px;
 
 	}
+	#xs-re-container{
+		display:flex; flex-direction: column;
+	}
+	#map_item {
+		order:1;
+	}
+	#ads_item{
+		order:2;
+	}
+   .card-me {
+	
+   }
 }
 .canEditBtn [md-button]{
 	min-width: 0px !important;
@@ -65,10 +80,7 @@ h1.list-group-item-heading{
     padding: 0 !important; 
 
 }
-.card-me {
-	background: #fff;
-	padding:0 !important;
-}
+
 .margin10 {
 	margin-top: 10px;
 }
