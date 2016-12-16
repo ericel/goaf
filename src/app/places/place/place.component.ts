@@ -49,8 +49,8 @@ export class PlaceComponent implements OnInit {
        // Retrieve Pet with Id route param
        this._placesService.findPetById(id).subscribe(place => {
          this.place = place;
-         this.lat = this.place.lat;
-         this.lng = this.place.lng;
+         this.lat = this.place.geometry.latitude;
+         this.lng = this.place.geometry.longitude;
          this.starsCount = this.place.rating;
          this.authID = this.place.authorID;
          this.website = this.place.website;

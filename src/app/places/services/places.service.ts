@@ -14,6 +14,10 @@ placesAll: FirebaseObjectObservable<any>;
 
 	listPlaces(name, cat, add, lat, lng, placeID, uid, username ) {
   let places = this.af.database.object(`/goaf-list-places/${placeID}`);
+  let thisgeo =  {
+                        latitude: lat  ,
+                        longitude: lng 
+                      };
   return places.set({
             placeID: placeID,
             placeName: name,
@@ -21,12 +25,11 @@ placesAll: FirebaseObjectObservable<any>;
             placeAdd: add,
             authorID: uid,
             author: username,
-            lat: lat,
-            lng: lng,
             rating: 0.5,
             website: "no_website",
             pPhone: "no_phone",
-            openHours: "no_hours", 
+            openHours: "no_hours",
+            geometry: thisgeo,
             listDate: firebase.database.ServerValue.TIMESTAMP
         });
 	} 
