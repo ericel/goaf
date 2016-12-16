@@ -23,7 +23,10 @@ placesAll: FirebaseObjectObservable<any>;
             author: username,
             lat: lat,
             lng: lng,
-            rating: 0.5, 
+            rating: 0.5,
+            website: "no_website",
+            pPhone: "no_phone",
+            openHours: "no_hours", 
             listDate: firebase.database.ServerValue.TIMESTAMP
         });
 	} 

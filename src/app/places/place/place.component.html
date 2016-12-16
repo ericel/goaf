@@ -16,9 +16,10 @@
 			    </rating>
 			    <div class="more-l">
 			    <small><i class="fa fa-map-marker" aria-hidden="true"></i> {{place.placeCat}}</small>
-			    <small><i class="fa fa-link" aria-hidden="true"></i> website</small>
+			    <small><i class="fa fa-link" aria-hidden="true"></i> <a target="_blank" routerLink="{{websiteLink}}"> {{website}}</a></small>
 			    </div>
 			    <address class="list-group-item-text"><span>Address:</span> {{place.placeAdd}}</address>
+			    <p class="list-group-item-text"><span>Phone Number: </span><a href="tel:{{phone_number}}">{{phone_number}}</a></p>
                 <p class="list-group-item-text"><span>Hours:</span> Open today · 8AM–5PM</p>
 			  </li>
 			

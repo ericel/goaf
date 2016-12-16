@@ -15,12 +15,18 @@ export class PlaceComponent implements OnInit {
   lng: number;
   private sub:any;
   public place: any;
-  uid: string;
+  uid: any;
   isGoafUser: boolean;
   authID: string;
+  website: string,
+  phone;
+  phone_number;
+  websiteLink;
+  hrs: any;
   starsCount: number;
   canEdit: boolean = false;
    images:any;
+
    
   myItems = ['Hotel', 'Restaurant', 'Office', 'Embassy', 'Education', 'Hostel', 'School', 'Hospital', 'Coffee', 'Park', 'Bus Station','Train Station', 'Government', 'Local', 'Airport'];
   constructor(private route: ActivatedRoute,
@@ -47,6 +53,21 @@ export class PlaceComponent implements OnInit {
          this.lng = this.place.lng;
          this.starsCount = this.place.rating;
          this.authID = this.place.authorID;
+         this.website = this.place.website;
+         if(this.website === "no_website"){
+           this.website = "No website added";
+           this.websiteLink = "#";
+         } else {
+           this.websiteLink = this.website;
+           this.website = "Website";
+         }
+         this.phone = this.place.pPhone;
+         if(this.phone === "no_phone"){
+           this.phone_number = "Phone Number not added!";
+         } else {
+           this.phone_number = this.phone;
+         }
+         this.hrs = this.place.openHours;
          this.AuthService.loggedInID().subscribe(value => {
           this.uid = value;
           if(this.authID === this.uid){

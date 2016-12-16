@@ -1,7 +1,7 @@
 <app-2-header></app-2-header>
 
 <main class="container-fluid">
-	<div class="row"> 
+	<div class="row" [hidden]="submitted"> 
 	<div class="col-md-6">
 	    <md-tab-group>
 		  <md-tab>
@@ -9,7 +9,7 @@
 		     Add a place <iron-icon icon="vaadin-icons:arrow-forward"></iron-icon>
 		    </template>
 		    
-		    <div  [hidden]="submitted">
+		    <div  >
 		    <div class="adding">
 		  <!--<input  id="pAddress" label="Place Address" [(ngModel)] = "pAddress"  (setAddress) = "getAddress($event)" googleplace
 			     name="pAddress">-->
@@ -41,18 +41,7 @@
 			</form>
 		    </div>
 		    </div>
-		    <div [hidden]="!submitted" class="afteradd alert alert-success animated fadeIn">
-		        <h1 class="animated bounceInUp h1"><i class="fa fa-thumbs-up animated swing" aria-hidden="true"></i> HURRAH!</h1>
-		        <P>Your Place has been successfully added</P>
-		        <h2>You will be redirected in a moment to  edit your listed place</h2>
-                <div id="countdown" class="aligned"></div>
-                <div class="aligned add_photos">Go Ahead: <a routerLink="/">https://goaf.com/place/1c67711db8116af5a43775e2c8326077</a> to add place photos.</div>
-                <h3>Once in your place page:-</h3>
-                <ol>
-                	<li>You should add place photos</li>
-                	<li>Check to make sure your listed place location is correct</li>
-                </ol>
-		    </div>
+		  
 		    <!-- <ul class="list-group">
 			  <li routerLink="/" class="list-group-item list-group-item-action">
 			    <h1 class="list-group-item-heading">{{pName}}</h1>
@@ -116,5 +105,18 @@
 		
 	</div>
   </div>
+  <div [hidden]="!submitted" class="afteradd cardo animated bounceInUp ">
+		        <h1 class="animated bounceInUp h1"><i class="fa fa-thumbs-up animated swing" aria-hidden="true"></i> HURRAH!</h1>
+		        <P>Your Place has been successfully added</P>
+		        <h2>You will be redirected in a moment to  edit your listed place</h2>
+                <div id="countdown" class="aligned"></div>
+                <div class="aligned add_photos">Go Ahead: <a routerLink="/">https://goaf.com/place/{{placeID}}</a> to add place photos.</div>
+                <h3>Once in your place page:-</h3>
+                <ol>
+                	<li>You should add place photos</li>
+                	<li>Check to make sure your listed place location is correct</li>
+                </ol>
+		    </div>
 </main>
+
 <app-footer></app-footer>
