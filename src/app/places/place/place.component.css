@@ -90,3 +90,7 @@ md-grid-tile md-checkbox {
 .grid-title-tx {
   display: block;
 }
+
+.time-picker .input-content ::content input, .input-content ::content textarea, .input-content ::content iron-autogrow-textarea, .input-content ::content .paper-input-input {
+	color: #fff !important;
+}

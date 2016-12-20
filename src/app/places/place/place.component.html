@@ -90,7 +90,7 @@
 </main>
 <app-footer></app-footer>
 
-	<div class="modal fade animated bounceInUp" id="editPlace" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal fade animated bounceInUp time-picker" id="editPlace" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	  <div class="modal-dialog"  role="document">
 	    <div class="modal-content">
 	     <div class="modal-header" color="primary">
@@ -117,7 +117,8 @@
 			    <tr>
 			      <th scope="row"><md-checkbox id="mon" (change)="mon($event)" [checked]="true">Checked</md-checkbox></th>
 			      <td>Monday</td>
-			      <td>@mdo</td>
+			      <td><paper-input label="Opening time" type="time" >
+</paper-input></td>
 			      <td>time</td>
 			    </tr>
 			     <tr>
