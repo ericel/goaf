@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
 import * as firebase from 'firebase';
-import { AngularFire, AuthProviders, AuthMethods, FirebaseObjectObservable } from 'angularfire2';
+import { AngularFire, AuthProviders, AuthMethods, FirebaseObjectObservable, FirebaseListObservable } from 'angularfire2';
 
 
 @Injectable()
 export class PlacesService {
 places: FirebaseObjectObservable<any>;
 placesAll: FirebaseObjectObservable<any>;
-
+placesList: FirebaseListObservable<any[]>;
   constructor(private af: AngularFire) {
      this.placesAll = af.database.object('goaf-list-places', { preserveSnapshot: true });
+     this.placesList = af.database.list('goaf-list-places');
    }
 
 	listPlaces(name, cat, add, lat, lng, placeID, uid, username ) {
@@ -45,6 +46,12 @@ placesAll: FirebaseObjectObservable<any>;
       
     });
  
+  }
+
+  getPlacesAll() {
+    return this.placesList.map(snapshot => {
+      return snapshot;
+    })
   }
 }
 
