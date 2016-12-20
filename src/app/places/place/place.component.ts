@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewContainerRef } from '@angular/core';
+import { Component, OnInit, ViewContainerRef, AfterViewInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, NgModel } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 import { ActivatedRoute, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
@@ -9,7 +9,7 @@ import { AuthService } from '../../auth/auth.service';
   templateUrl: './place.component.html',
   styleUrls: ['./place.component.css']
 })
-export class PlaceComponent implements OnInit {
+export class PlaceComponent implements OnInit, AfterViewInit {
   listForm : FormGroup;
   lat: number;
   lng: number;
@@ -26,7 +26,7 @@ export class PlaceComponent implements OnInit {
   starsCount: number;
   canEdit: boolean = false;
   images:any;
-
+  monday: boolean = false;
    
   myItems = ['Hotel', 'Restaurant', 'Office', 'Embassy', 'Education', 'Hostel', 'School', 'Hospital', 'Coffee', 'Park', 'Bus Station','Train Station', 'Government', 'Local', 'Airport'];
   constructor(private route: ActivatedRoute,
@@ -36,7 +36,8 @@ export class PlaceComponent implements OnInit {
     private AuthService : AuthService) { 
      this.openForm = fb.group({
       
-    })
+    });
+
   }
 
   ngOnInit() {
@@ -109,7 +110,18 @@ export class PlaceComponent implements OnInit {
    
      
   }
+  ngAfterViewInit() {
+    
 
+  }
+
+  mon(e){
+    if(e.checked){
+      console.log("This is checked")
+    } else {
+      console.log("unchecked");
+    }
+  }
    ngOnDestroy() {
       // Clean sub to avoid memory leak
     this.sub.unsubscribe();

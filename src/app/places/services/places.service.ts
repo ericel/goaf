@@ -16,9 +16,19 @@ placesList: FirebaseListObservable<any[]>;
 	listPlaces(name, cat, add, lat, lng, placeID, uid, username ) {
   let places = this.af.database.object(`/goaf-list-places/${placeID}`);
   let thisgeo =  {
-                        latitude: lat  ,
-                        longitude: lng 
-                      };
+                    latitude: lat  ,
+                    longitude: lng 
+                 };
+  let openTime = {
+      monday: {
+        openTime: '09 AM',
+        closeTime: '05 PM'
+      },
+       tuesday: {
+        openTime: '09 AM',
+        closeTime: '05 PM'
+      }
+  }
   return places.set({
             placeID: placeID,
             placeName: name,
@@ -29,7 +39,7 @@ placesList: FirebaseListObservable<any[]>;
             rating: 0.5,
             website: "no_website",
             pPhone: "no_phone",
-            openHours: "no_hours",
+            openHours: openTime,
             geometry: thisgeo,
             listDate: firebase.database.ServerValue.TIMESTAMP
         });

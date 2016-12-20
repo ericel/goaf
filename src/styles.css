@@ -207,4 +207,13 @@ app-root:empty + .loading {
   cursor: pointer;
 }
 
+.modal-header {
+    padding: 15px;
+    border-bottom: 1px solid #e5e5e5;
+    box-shadow: 0 0 1px rgba(0,0,0,.14), 0 1px 3px rgba(0,0,0,.28);
+    z-index: 9992;
+    background-color: #232f3e;
+    background: linear-gradient(#1E3A5C, #232f3e);
+    color: #ccd;
+}
 /* END GALLERY CSS */
