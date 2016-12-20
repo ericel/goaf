@@ -84,3 +84,9 @@ h1.list-group-item-heading{
 .margin10 {
 	margin-top: 10px;
 }
+md-grid-tile md-checkbox {
+	display: block;
+}
+.grid-title-tx {
+  display: block;
+}

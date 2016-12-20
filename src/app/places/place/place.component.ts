@@ -25,7 +25,7 @@ export class PlaceComponent implements OnInit {
   hrs: any;
   starsCount: number;
   canEdit: boolean = false;
-   images:any;
+  images:any;
 
    
   myItems = ['Hotel', 'Restaurant', 'Office', 'Embassy', 'Education', 'Hostel', 'School', 'Hospital', 'Coffee', 'Park', 'Bus Station','Train Station', 'Government', 'Local', 'Airport'];
@@ -34,10 +34,8 @@ export class PlaceComponent implements OnInit {
     fb: FormBuilder,
     private _placesService: PlacesService, 
     private AuthService : AuthService) { 
-     this.listForm = fb.group({
-      'pCategory' : [null, Validators.required],
-      'pAddress': [null,  Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(100)])],
-      'pName' : [null, Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(50)])]
+     this.openForm = fb.group({
+      
     })
   }
 
