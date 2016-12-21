@@ -27,6 +27,8 @@ export class PlaceComponent implements OnInit, AfterViewInit {
   canEdit: boolean = false;
   images:any;
   monday: boolean = false;
+  mOpen;
+  mClose;
    
   myItems = ['Hotel', 'Restaurant', 'Office', 'Embassy', 'Education', 'Hostel', 'School', 'Hospital', 'Coffee', 'Park', 'Bus Station','Train Station', 'Government', 'Local', 'Airport'];
   constructor(private route: ActivatedRoute,
@@ -66,7 +68,8 @@ export class PlaceComponent implements OnInit, AfterViewInit {
          } else {
            this.phone_number = this.phone;
          }
-         this.hrs = this.place.openHours;
+         this.mOpen = this.place.openHours.monday.openTime;
+         this.mClose = this.place.openHours.monday.closeTime;
          this.AuthService.loggedInID().subscribe(value => {
           this.uid = value;
           if(this.authID === this.uid){
@@ -76,7 +79,7 @@ export class PlaceComponent implements OnInit, AfterViewInit {
        });
 
     });
-
+    console.log(this.mOpen);
     this.images = [
       {"url":"./assets/images/design/list.jpg",
        "title":"Aliquam erat volutpat",
@@ -107,8 +110,6 @@ export class PlaceComponent implements OnInit, AfterViewInit {
        "caption":"imperdiet imperdiet. Nullam ut ligula vitae arcu vulputate dictum ut quis elit."
       }
       ]; 
-   
-     
   }
   ngAfterViewInit() {
     
@@ -117,7 +118,7 @@ export class PlaceComponent implements OnInit, AfterViewInit {
 
   mon(e){
     if(e.checked){
-      console.log("This is checked")
+      console.log(this.mOpen);
     } else {
       console.log("unchecked");
     }

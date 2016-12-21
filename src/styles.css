@@ -216,4 +216,5 @@ app-root:empty + .loading {
     background: linear-gradient(#1E3A5C, #232f3e);
     color: #ccd;
 }
+
 /* END GALLERY CSS */

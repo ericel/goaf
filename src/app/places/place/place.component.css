@@ -91,6 +91,7 @@ md-grid-tile md-checkbox {
   display: block;
 }
 
-.time-picker .input-content ::content input, .input-content ::content textarea, .input-content ::content iron-autogrow-textarea, .input-content ::content .paper-input-input {
-	color: #fff !important;
+.time-picker .form-control {
+	background-color: #373a3c;
+	color: #ccd;
 }

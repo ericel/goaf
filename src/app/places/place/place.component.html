@@ -102,7 +102,7 @@
 		    <div class="adding">
 		  <!--<input  id="pAddress" label="Place Address" [(ngModel)] = "pAddress"  (setAddress) = "getAddress($event)" googleplace
 			     name="pAddress">-->
-		   <form class="form-add" [formGroup]="openForm" (ngSubmit)="submitForm(openForm.value)">
+		  
 		     <div class="form-group">
 		      <table class="table table-bordered table-inverse table-hover">
 			  <thead>
@@ -117,14 +117,14 @@
 			    <tr>
 			      <th scope="row"><md-checkbox id="mon" (change)="mon($event)" [checked]="true">Checked</md-checkbox></th>
 			      <td>Monday</td>
-			      <td><paper-input label="Opening time" type="time" >
-</paper-input></td>
-			      <td>time</td>
+			      <td><input class="form-control ts-inputs" [(ngModel)]="mOpen" name="opentime" label="Opening time" type="time" [ngModelOptions]="{standalone: true}" [(value)]="mOpen">
+                  </td>
+			      <td><input class="form-control ts-inputs" [(ngModel)]="mClose" name="closetime" label="Opening time" type="time" [ngModelOptions]="{standalone: true}" [(value)]="mClose"></td>
 			    </tr>
 			     <tr>
 			      <th scope="row"><md-checkbox [checked]="true">Checked</md-checkbox></th>
 			      <td>Monday</td>
-			      <td>@mdo</td>
+			      <td><input class="form-control ts-inputs" label="Opening time" type="time" ></td>
 			      <td>time</td>
 			    </tr>
 			     <tr>
@@ -161,8 +161,6 @@
 			</table>
 		      </div>
            
-              <button md-button md-raised-button color="primary" type="submit" [disabled]="!openForm.valid" >Click Here To Add Place</button>
-			</form>
 		    </div>
 		    </div>
 		    <div [hidden]="!submitted" class="afteradd alert alert-success animated fadeIn">
