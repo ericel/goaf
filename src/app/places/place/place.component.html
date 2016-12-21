@@ -114,49 +114,61 @@
 			    </tr>
 			  </thead>
 			  <tbody>
-			    <tr>
-			      <th scope="row"><md-checkbox id="mon" (change)="mon($event)" [checked]="true">Checked</md-checkbox></th>
+			    <tr class="strike-thru">
+			      <th scope="row"><md-checkbox id="mon" [(ngModel)]="monCheck" name="mon"  [checked]="true" [ngModelOptions]="{standalone: true}">{{mon_label}}</md-checkbox></th>
 			      <td>Monday</td>
 			      <td><input class="form-control ts-inputs" [(ngModel)]="mOpen" name="opentime" label="Opening time" type="time" [ngModelOptions]="{standalone: true}" [(value)]="mOpen">
                   </td>
 			      <td><input class="form-control ts-inputs" [(ngModel)]="mClose" name="closetime" label="Opening time" type="time" [ngModelOptions]="{standalone: true}" [(value)]="mClose"></td>
 			    </tr>
 			     <tr>
-			      <th scope="row"><md-checkbox [checked]="true">Checked</md-checkbox></th>
-			      <td>Monday</td>
-			      <td><input class="form-control ts-inputs" label="Opening time" type="time" ></td>
-			      <td>time</td>
+			      <th scope="row"><md-checkbox id="tues" [(ngModel)]="tuesCheck" name="tues"  [checked]="true" [ngModelOptions]="{standalone: true}">{{tues_label}}</md-checkbox></th>
+			      <td>Tuesday</td>
+			      <td><input class="form-control ts-inputs" [(ngModel)]="tOpen" name="opentime" label="Opening time" type="time" [ngModelOptions]="{standalone: true}" [(value)]="tOpen">
+                  </td>
+			      <td><input class="form-control ts-inputs" [(ngModel)]="tClose" name="closetime" label="Opening time" type="time" [ngModelOptions]="{standalone: true}" [(value)]="tClose"></td>
 			    </tr>
-			     <tr>
-			      <th scope="row"><md-checkbox [checked]="true">Checked</md-checkbox></th>
-			      <td>Monday</td>
-			      <td>@mdo</td>
-			      <td>time</td>
-			    </tr>
-			     <tr>
-			      <th scope="row"><md-checkbox [checked]="true">Checked</md-checkbox></th>
-			      <td>Monday</td>
-			      <td>@mdo</td>
-			      <td>time</td>
-			    </tr>
-			     <tr>
-			      <th scope="row"><md-checkbox [checked]="true">Checked</md-checkbox></th>
-			      <td>Monday</td>
-			      <td>@mdo</td>
-			      <td>time</td>
-			    </tr>
-			     <tr>
-			      <th scope="row"><md-checkbox [checked]="true">Checked</md-checkbox></th>
-			      <td>Monday</td>
-			      <td>@mdo</td>
-			      <td>time</td>
-			    </tr>
+
 			    <tr>
-			      <th scope="row"><md-checkbox [checked]="true">Checked</md-checkbox></th>
-			      <td>Monday</td>
-			      <td>@mdo</td>
-			      <td>time</td>
+			      <th scope="row"><md-checkbox  [(ngModel)]="wedCheck" name="wed"  [checked]="true" [ngModelOptions]="{standalone: true}">{{wed_label}}</md-checkbox></th>
+			      <td>Wednesday</td>
+			      <td><input class="form-control ts-inputs" [(ngModel)]="wOpen" name="opentime" label="Opening time" type="time" [ngModelOptions]="{standalone: true}" [(value)]="wOpen">
+                  </td>
+			      <td><input class="form-control ts-inputs" [(ngModel)]="wClose" name="closetime" label="Opening time" type="time" [ngModelOptions]="{standalone: true}" [(value)]="wClose"></td>
 			    </tr>
+
+			     <tr>
+			      <th scope="row"><md-checkbox  [(ngModel)]="thuCheck" name="thu"  [checked]="true" [ngModelOptions]="{standalone: true}">{{thu_label}}</md-checkbox></th>
+			      <td>Thursday</td>
+			      <td><input class="form-control ts-inputs" [(ngModel)]="thuOpen" name="opentime" label="Opening time" type="time" [ngModelOptions]="{standalone: true}" [(value)]="thuOpen">
+                  </td>
+			      <td><input class="form-control ts-inputs" [(ngModel)]="thuClose" name="closetime" label="Opening time" type="time" [ngModelOptions]="{standalone: true}" [(value)]="thuClose"></td>
+			    </tr>
+
+			      <tr>
+			      <th scope="row"><md-checkbox  [(ngModel)]="friCheck" name="fri"  [checked]="true" [ngModelOptions]="{standalone: true}">{{fri_label}}</md-checkbox></th>
+			      <td>Friday</td>
+			      <td><input class="form-control ts-inputs" [(ngModel)]="friOpen" name="opentime" label="Opening time" type="time" [ngModelOptions]="{standalone: true}" [(value)]="friOpen">
+                  </td>
+			      <td><input class="form-control ts-inputs" [(ngModel)]="friClose" name="closetime" label="Opening time" type="time" [ngModelOptions]="{standalone: true}" [(value)]="friClose"></td>
+			    </tr>
+
+			      <tr>
+			      <th scope="row"><md-checkbox  [(ngModel)]="satCheck" name="fri"  [checked]="true" [ngModelOptions]="{standalone: true}">{{sat_label}}</md-checkbox></th>
+			      <td>Saturday</td>
+			      <td><input class="form-control ts-inputs" [(ngModel)]="satOpen" name="opentime" label="Opening time" type="time" [ngModelOptions]="{standalone: true}" [(value)]="satOpen">
+                  </td>
+			      <td><input class="form-control ts-inputs" [(ngModel)]="satClose" name="closetime" label="Opening time" type="time" [ngModelOptions]="{standalone: true}" [(value)]="satClose"></td>
+			    </tr>
+
+                  <tr>
+			      <th scope="row"><md-checkbox  [(ngModel)]="sunCheck" name="fri"  [checked]="true" [ngModelOptions]="{standalone: true}">{{sun_label}}</md-checkbox></th>
+			      <td>Sunday</td>
+			      <td><input class="form-control ts-inputs" [(ngModel)]="sunOpen" name="opentime" label="Opening time" type="time" [ngModelOptions]="{standalone: true}" [(value)]="sunOpen">
+                  </td>
+			      <td><input class="form-control ts-inputs" [(ngModel)]="sunClose" name="closetime" label="Opening time" type="time" [ngModelOptions]="{standalone: true}" [(value)]="sunClose"></td>
+			    </tr>
+			     <button md-button md-raised-button color="primary" class="pull-right" (click)="detect($event)">Click Here to Update!</button>
 			  </tbody>
 			</table>
 		      </div>

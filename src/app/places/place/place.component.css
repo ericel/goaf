@@ -95,3 +95,6 @@ md-grid-tile md-checkbox {
 	background-color: #373a3c;
 	color: #ccd;
 }
+.strike-thru {
+	text-decoration: line-through;
+}

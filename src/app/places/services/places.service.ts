@@ -15,18 +15,45 @@ placesList: FirebaseListObservable<any[]>;
 
 	listPlaces(name, cat, add, lat, lng, placeID, uid, username ) {
   let places = this.af.database.object(`/goaf-list-places/${placeID}`);
-  let thisgeo =  {
+  let thisgeo =  {  
                     latitude: lat  ,
                     longitude: lng 
                  };
   let openTime = {
-      monday: {
-        openTime: '09 AM',
-        closeTime: '05 PM'
+      Monday: {
+        status: 'true',
+        openTime: '09:00',
+        closeTime: '17:00'
       },
-       tuesday: {
-        openTime: '09 AM',
-        closeTime: '05 PM'
+       Tuesday: {
+        status: 'true',
+        openTime: '09:00',
+        closeTime: '17:00'
+      },
+        Wednesday: {
+        status: 'true',
+        openTime: '09:00',
+        closeTime: '17:00'
+      },
+        Thursday: {
+        status: 'true',
+        openTime: '09:00',
+        closeTime: '17:00'
+      },
+        Friday: {
+        status: 'true',
+        openTime: '09:00',
+        closeTime: '17:00'
+      },
+        Saturday: {
+        status: 'true',
+        openTime: '09:00',
+        closeTime: '17:00'
+      },
+        Sunday: {
+        status: 'true',
+        openTime: '09:00',
+        closeTime: '17:00'
       }
   }
   return places.set({
@@ -56,6 +83,48 @@ placesList: FirebaseListObservable<any[]>;
       
     });
  
+  }
+
+  updatePlaceHours(id, mSt, mOpen, mClose, tSt, tOpen, tClose, wSt, wOpen, wClose, thSt, thOpen, thClose, fSt, fOpen, fClose, sSt, sOpen, sClose, suSt, suOpen, suClose){
+    const place = this.af.database.object(`/goaf-list-places/${id}`);
+    let openTime = {
+      Monday: {
+        status: mSt,
+        openTime: mOpen,
+        closeTime: mClose
+      },
+      Tuesday: {
+        status: tSt,
+        openTime: tOpen,
+        closeTime: tClose
+      },
+      Wednesday: {
+        status: wSt,
+        openTime: wOpen,
+        closeTime: wClose
+      },
+      Thursday: {
+        status: thSt,
+        openTime: thOpen,
+        closeTime: thClose
+      },
+      Friday: {
+        status: fSt,
+        openTime: fOpen,
+        closeTime: fClose
+      },
+      Saturday: {
+        status: sSt,
+        openTime: sOpen,
+        closeTime: sClose
+      },
+      Sunday: {
+        status: suSt,
+        openTime: suOpen,
+        closeTime: suClose
+      }
+    }
+     place.update({ openHours: openTime });
   }
 
   getPlacesAll() {

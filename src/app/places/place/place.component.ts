@@ -13,6 +13,7 @@ export class PlaceComponent implements OnInit, AfterViewInit {
   listForm : FormGroup;
   lat: number;
   lng: number;
+  id;
   private sub:any;
   public place: any;
   uid: any;
@@ -29,7 +30,10 @@ export class PlaceComponent implements OnInit, AfterViewInit {
   monday: boolean = false;
   mOpen;
   mClose;
-   
+  monCheck;
+  mon_label; tues_label; wed_label; thu_label; fri_label; sat_label; sun_label;
+  tOpen; tClose; tuesCheck; wOpen; wClose; wedCheck; thuOpen; thuClose; thuCheck; friOpen; friClose; friCheck; 
+  satOpen; satClose; satCheck; sunOpen; sunClose; sunCheck;
   myItems = ['Hotel', 'Restaurant', 'Office', 'Embassy', 'Education', 'Hostel', 'School', 'Hospital', 'Coffee', 'Park', 'Bus Station','Train Station', 'Government', 'Local', 'Airport'];
   constructor(private route: ActivatedRoute,
     vRef: ViewContainerRef,  
@@ -45,10 +49,10 @@ export class PlaceComponent implements OnInit, AfterViewInit {
   ngOnInit() {
   	this.starsCount = 2.5;
     this.sub = this.route.params.subscribe(params => {
-        let id = params['id'];
+        this.id = params['id'];
         let str = params['string'];
        // Retrieve Pet with Id route param
-       this._placesService.findPetById(id).subscribe(place => {
+       this._placesService.findPetById(this.id).subscribe(place => {
          this.place = place;
          this.lat = this.place.geometry.latitude;
          this.lng = this.place.geometry.longitude;
@@ -68,18 +72,75 @@ export class PlaceComponent implements OnInit, AfterViewInit {
          } else {
            this.phone_number = this.phone;
          }
-         this.mOpen = this.place.openHours.monday.openTime;
-         this.mClose = this.place.openHours.monday.closeTime;
+         
          this.AuthService.loggedInID().subscribe(value => {
           this.uid = value;
           if(this.authID === this.uid){
             this.canEdit = true;
           }
           });
+
+         this.mOpen = this.place.openHours.Monday.openTime;
+         this.mClose = this.place.openHours.Monday.closeTime;
+         this.monCheck = this.place.openHours.Monday.status;
+         if(this.monCheck){
+           this.mon_label = "Open";
+         } else {
+           this.mon_label = "Close";
+         }
+
+         this.tOpen = this.place.openHours.Tuesday.openTime;
+         this.tClose = this.place.openHours.Tuesday.closeTime;
+         this.tuesCheck = this.place.openHours.Tuesday.status;
+         if(this.tuesCheck){
+           this.tues_label = "Open";
+         } else {
+           this.tues_label = "Close";
+         }
+         this.wOpen = this.place.openHours.Wednesday.openTime;
+         this.wClose = this.place.openHours.Wednesday.closeTime;
+         this.wedCheck = this.place.openHours.Wednesday.status;
+         if(this.wedCheck){
+           this.wed_label = "Open";
+         } else {
+           this.wed_label = "Close";
+         }
+         this.thuOpen = this.place.openHours.Thursday.openTime;
+         this.thuClose = this.place.openHours.Thursday.closeTime;
+         this.thuCheck = this.place.openHours.Thursday.status;
+         if(this.thuCheck){
+           this.thu_label = "Open";
+         } else {
+           this.thu_label = "Close";
+         }
+         this.friOpen = this.place.openHours.Friday.openTime;
+         this.friClose = this.place.openHours.Friday.closeTime;
+         this.friCheck = this.place.openHours.Friday.status;
+         if(this.friCheck){
+           this.fri_label = "Open";
+         } else {
+           this.fri_label = "Close";
+         }
+         this.satOpen = this.place.openHours.Saturday.openTime;
+         this.satClose = this.place.openHours.Saturday.closeTime;
+         this.satCheck = this.place.openHours.Saturday.status;
+         if(this.satCheck){
+           this.sat_label = "Open";
+         } else {
+           this.sat_label = "Close";
+         }
+         this.sunOpen = this.place.openHours.Sunday.openTime;
+         this.sunClose = this.place.openHours.Sunday.closeTime;
+         this.sunCheck = this.place.openHours.Sunday.status;
+         if(this.sunCheck){
+           this.sun_label = "Open";
+         } else {
+           this.sun_label = "Close";
+         }
        });
 
     });
-    console.log(this.mOpen);
+
     this.images = [
       {"url":"./assets/images/design/list.jpg",
        "title":"Aliquam erat volutpat",
@@ -115,14 +176,11 @@ export class PlaceComponent implements OnInit, AfterViewInit {
     
 
   }
-
-  mon(e){
-    if(e.checked){
-      console.log(this.mOpen);
-    } else {
-      console.log("unchecked");
-    }
+  detect(e){
+    this._placesService.updatePlaceHours(this.id, this.monCheck, this.mOpen, this.mClose,
+     this.tuesCheck, this.tOpen, this.tClose, this.wedCheck, this.wOpen, this.wClose, this.thuCheck, this.thuOpen, this.thuClose, this.friCheck, this.friOpen, this.friClose, this.satCheck, this.satOpen, this.satClose, this.sunCheck, this.sunOpen, this.sunClose);
   }
+
    ngOnDestroy() {
       // Clean sub to avoid memory leak
     this.sub.unsubscribe();
