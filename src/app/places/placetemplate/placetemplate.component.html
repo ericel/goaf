@@ -19,13 +19,6 @@
 			    </div>
 			    <address class="list-group-item-text"><span>Address:</span> {{place.placeAdd}}</address>
                 <p class="list-group-item-text"><span>Hours:</span> Open today · 8AM–5PM</p>
-			    
-
-			    <!--<div *ngFor="let item of [1, 2, 3]; let index = index">
-		        <rating [(ngModel)]="starsCounts[index]"
-		                [float]="true">
-		        </rating>
-		        </div>-->
 			  </li>
 			
 		</ul>
@@ -51,15 +44,26 @@
 	<md-tab-group>
   <md-tab>
     <template md-tab-label>
-      Place Map
+      Sponsored
     </template>
     <ng2-adsense
-  [adClient]="'ca-pub-2243338195594977'"
-  [adSlot]="7979162777">
-</ng2-adsense>
-   <sebm-google-map class="animated bounce" [latitude]="lat" [longitude]="lng">
-            <sebm-google-map-marker [latitude]="lat" [longitude]="lng"></sebm-google-map-marker>
-        </sebm-google-map>
+	  [adClient]="'ca-pub-2243338195594977'"
+	  [adSlot]="7979162777">
+	</ng2-adsense>
+     <ul class="list-group">
+			  <li *ngFor="let place of places | sample: 5 "  class="list-group-item list-group-item-action">
+			    <h1 class="list-group-item-heading"><a routerLink="/place/{{place.placeID}}/{{place.placeName | slugify}}"> {{place.placeName}}</a></h1>
+			    <rating [(ngModel)]="place.rating"
+			            [titles]="['one', 'two', 'three', 'four', 'five']" [float]="true">
+			    </rating>
+			    <div class="more-l">
+			    <small><i class="fa fa-map-marker" aria-hidden="true"></i> {{place.placeCat}}</small>
+			    <small><i class="fa fa-link" aria-hidden="true"></i> website</small>
+			    </div>
+			    <address class="list-group-item-text"><span>Address:</span> {{place.placeAdd}}</address>
+                <p class="list-group-item-text"><span>Hours:</span> Open today · 8AM–5PM</p>
+			  </li>
+		</ul>
   </md-tab>
   <md-tab>
     <template md-tab-label>

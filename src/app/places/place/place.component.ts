@@ -9,6 +9,8 @@ import { AuthService } from '../../auth/auth.service';
   templateUrl: './place.component.html',
   styleUrls: ['./place.component.css']
 })
+
+
 export class PlaceComponent implements OnInit, AfterViewInit {
   listForm : FormGroup;
   lat: number;
@@ -23,8 +25,8 @@ export class PlaceComponent implements OnInit, AfterViewInit {
   phone;
   phone_number;
   websiteLink;
-  hrs: any;
   starsCount: number;
+  opening: string;
   canEdit: boolean = false;
   images:any;
   monday: boolean = false;
@@ -44,7 +46,7 @@ export class PlaceComponent implements OnInit, AfterViewInit {
      this.openForm = fb.group({
       
     });
-
+    this._refresh();
   }
 
   ngOnInit() {
@@ -182,6 +184,140 @@ export class PlaceComponent implements OnInit, AfterViewInit {
      this.tuesCheck, this.tOpen, this.tClose, this.wedCheck, this.wOpen, this.wClose, this.thuCheck, this.thuOpen, this.thuClose, this.friCheck, this.friOpen, this.friClose, this.satCheck, this.satOpen, this.satClose, this.sunCheck, this.sunOpen, this.sunClose);
     this.detectOk = true;
   }
+
+   private _getDayName(): string {
+    return new Date().toLocaleString("en-us", { weekday: 'long' });
+  }
+  
+  private _isOpen(todaysOpeningData: any): bool {
+    const curDate = new Date();
+    const open = new Date();
+    const close = new Date();
+    
+    open.setHours(+todaysOpeningData.openTime.split(':')[0]);
+    open.setMinutes(+todaysOpeningData.openTime.split(':')[1]);
+    
+    close.setHours(+todaysOpeningData.closeTime.split(':')[0]);
+    close.setMinutes(+todaysOpeningData.closeTime.split(':')[1]);
+    
+    return curDate >= open && curDate <= close;
+  }
+  
+  private _checkOpeningHours(data: any): string {
+    const openingdata = {
+  "author" : "James Iva",
+  "authorID" : "JBvLC3tCYCgFeIpKjGtSwBJ2scu1",
+  "geometry" : {
+    "latitude" : 29.4241219,
+    "longitude" : -98.49362819999999
+  },
+  "listDate" : 1482331706209,
+  "openHours" : {
+    "Friday" : {
+      "closeTime" : "17:00",
+      "openTime" : "09:00",
+      "status" : true
+    },
+    "Monday" : {
+      "closeTime" : "17:08",
+      "openTime" : "09:00",
+      "status" : true
+    },
+    "Saturday" : {
+      "closeTime" : "17:00",
+      "openTime" : "09:00",
+      "status" : true
+    },
+    "Sunday" : {
+      "closeTime" : "17:00",
+      "openTime" : "10:00",
+      "status" : true
+    },
+    "Thursday" : {
+      "closeTime" : "20:00",
+      "openTime" : "09:21",
+      "status" : false
+    },
+    "Tuesday" : {
+      "closeTime" : "17:00",
+      "openTime" : "04:00",
+      "status" : false
+    },
+    "Wednesday" : {
+      "closeTime" : "17:00",
+      "openTime" : "10:00",
+      "status" : false
+    }
+  },
+  "pPhone" : "no_phone",
+  "placeAdd" : "San Antonio, TX, USA",
+  "placeCat" : "Education"
+};
+    const curDayName = this._getDayName();
+    const todaysOpeningData = openingdata.openHours[curDayName];
+    
+    if (!todaysOpeningData) return "ERROR!";
+    if (!todaysOpeningData.status) return `IT'S ${curDayName.toUpperCase()} - WE ARE CLOSED TODAY!`;
+    
+    return `IT'S ${curDayName.toUpperCase()}, ${new Date().toLocaleString("en-US", { hour: '2-digit', minute: '2-digit' })} - ${this._isOpen(todaysOpeningData) ? 'WE ARE OPEN' : 'SORRY, WE ARE CLOSED'}!`;
+  }
+  
+  private _refresh() {
+    const openingdata = {
+  "author" : "James Iva",
+  "authorID" : "JBvLC3tCYCgFeIpKjGtSwBJ2scu1",
+  "geometry" : {
+    "latitude" : 29.4241219,
+    "longitude" : -98.49362819999999
+  },
+  "listDate" : 1482331706209,
+  "openHours" : {
+    "Friday" : {
+      "closeTime" : "17:00",
+      "openTime" : "09:00",
+      "status" : true
+    },
+    "Monday" : {
+      "closeTime" : "17:08",
+      "openTime" : "09:00",
+      "status" : true
+    },
+    "Saturday" : {
+      "closeTime" : "17:00",
+      "openTime" : "09:00",
+      "status" : true
+    },
+    "Sunday" : {
+      "closeTime" : "17:00",
+      "openTime" : "10:00",
+      "status" : true
+    },
+    "Thursday" : {
+      "closeTime" : "20:00",
+      "openTime" : "09:21",
+      "status" : false
+    },
+    "Tuesday" : {
+      "closeTime" : "17:00",
+      "openTime" : "04:00",
+      "status" : false
+    },
+    "Wednesday" : {
+      "closeTime" : "17:00",
+      "openTime" : "10:00",
+      "status" : false
+    }
+  },
+  "pPhone" : "no_phone",
+  "placeAdd" : "San Antonio, TX, USA",
+  "placeCat" : "Education"
+};
+    this.opening = this._checkOpeningHours(openingdata.openHours[this._getDayName()]);
+    console.log(this.opening);
+    
+    setTimeout(() => this._refresh(), 60 * 1000);
+  }
+
 
    ngOnDestroy() {
       // Clean sub to avoid memory leak
