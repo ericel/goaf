@@ -104,7 +104,7 @@
 			     name="pAddress">-->
 		  
 		     <div class="form-group">
-		      <table class="table table-bordered table-inverse table-hover">
+		      <table class="table table-bordered table-inverse table-hover table-sm">
 			  <thead>
 			    <tr>
 			      <th>Status</th>
@@ -168,9 +168,12 @@
                   </td>
 			      <td><input class="form-control ts-inputs" [(ngModel)]="sunClose" name="closetime" label="Opening time" type="time" [ngModelOptions]="{standalone: true}" [(value)]="sunClose"></td>
 			    </tr>
-			     <button md-button md-raised-button color="primary" class="pull-right" (click)="detect($event)">Click Here to Update!</button>
+			    
 			  </tbody>
 			</table>
+			   <div class="modal-footer">
+		       <span [hidden]="!detectOk" class="sta-update alert alert-success">Updated successfully!</span> <button md-button md-raised-button color="primary" class="pull-right" (click)="detect($event)">Click Here to Update!</button>
+		      </div>
 		      </div>
            
 		    </div>

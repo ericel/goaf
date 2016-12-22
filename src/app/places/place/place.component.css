@@ -96,5 +96,9 @@ md-grid-tile md-checkbox {
 	color: #ccd;
 }
 .strike-thru {
-	text-decoration: line-through;
+	
+}
+.sta-update {
+	margin-right: 10px;
+	float: left;
 }

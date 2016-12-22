@@ -28,6 +28,7 @@ export class PlaceComponent implements OnInit, AfterViewInit {
   canEdit: boolean = false;
   images:any;
   monday: boolean = false;
+  detectOk: boolean = false;
   mOpen;
   mClose;
   monCheck;
@@ -179,6 +180,7 @@ export class PlaceComponent implements OnInit, AfterViewInit {
   detect(e){
     this._placesService.updatePlaceHours(this.id, this.monCheck, this.mOpen, this.mClose,
      this.tuesCheck, this.tOpen, this.tClose, this.wedCheck, this.wOpen, this.wClose, this.thuCheck, this.thuOpen, this.thuClose, this.friCheck, this.friOpen, this.friClose, this.satCheck, this.satOpen, this.satClose, this.sunCheck, this.sunOpen, this.sunClose);
+    this.detectOk = true;
   }
 
    ngOnDestroy() {
