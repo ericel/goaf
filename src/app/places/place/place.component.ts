@@ -1,9 +1,62 @@
 import { Component, OnInit, ViewContainerRef, AfterViewInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, NgModel } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/catch';
 import { ActivatedRoute, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { AngularFire,  FirebaseObjectObservable, FirebaseListObservable } from 'angularfire2';
 import { PlacesService } from '../services/places.service';
 import { AuthService } from '../../auth/auth.service';
+import 'rxjs/add/operator/map';
+         const openingdata  = {
+  "author" : "James Iva",
+  "authorID" : "JBvLC3tCYCgFeIpKjGtSwBJ2scu1",
+  "geometry" : {
+    "latitude" : 29.4241219,
+    "longitude" : -98.49362819999999
+  },
+  "listDate" : 1482331706209,
+  "openHours" : {
+    "Friday" : {
+      "closeTime" : "17:00",
+      "openTime" : "09:00",
+      "status" : true
+    },
+    "Monday" : {
+      "closeTime" : "17:08",
+      "openTime" : "09:00",
+      "status" : true
+    },
+    "Saturday" : {
+      "closeTime" : "17:00",
+      "openTime" : "09:00",
+      "status" : true
+    },
+    "Sunday" : {
+      "closeTime" : "17:00",
+      "openTime" : "10:00",
+      "status" : true
+    },
+    "Thursday" : {
+      "closeTime" : "17:00",
+      "openTime" : "09:21",
+      "status" : true
+    },
+    "Tuesday" : {
+      "closeTime" : "17:00",
+      "openTime" : "04:00",
+      "status" : false
+    },
+    "Wednesday" : {
+      "closeTime" : "17:00",
+      "openTime" : "10:00",
+      "status" : false
+    }
+  },
+  "pPhone" : "no_phone",
+  "placeAdd" : "San Antonio, TX, USA",
+  "placeCat" : "Education"
+};
+
 @Component({
   selector: 'app-place',
   templateUrl: './place.component.html',
@@ -12,7 +65,7 @@ import { AuthService } from '../../auth/auth.service';
 
 
 export class PlaceComponent implements OnInit, AfterViewInit {
-  listForm : FormGroup;
+  placesAll: FirebaseObjectObservable<any>;
   lat: number;
   lng: number;
   id;
@@ -27,8 +80,10 @@ export class PlaceComponent implements OnInit, AfterViewInit {
   websiteLink;
   starsCount: number;
   opening: string;
+  openingdata;
   canEdit: boolean = false;
   images:any;
+  getThisPlaceData;
   monday: boolean = false;
   detectOk: boolean = false;
   mOpen;
@@ -42,18 +97,19 @@ export class PlaceComponent implements OnInit, AfterViewInit {
     vRef: ViewContainerRef,  
     fb: FormBuilder,
     private _placesService: PlacesService, 
-    private AuthService : AuthService) { 
-     this.openForm = fb.group({
-      
-    });
-    this._refresh();
+    private AuthService : AuthService, private af: AngularFire) { 
+     this._refresh();
+     this.placesAll = af.database.object('goaf-list-places', { preserveSnapshot: true });
+     console.log(this.placesAll);
   }
 
   ngOnInit() {
-  	this.starsCount = 2.5;
+  
     this.sub = this.route.params.subscribe(params => {
         this.id = params['id'];
         let str = params['string'];
+   
+
        // Retrieve Pet with Id route param
        this._placesService.findPetById(this.id).subscribe(place => {
          this.place = place;
@@ -168,10 +224,6 @@ export class PlaceComponent implements OnInit, AfterViewInit {
       {"url":"./assets/images/design/room.jpeg",
         "title":"Aliquam erat volutpat",
        "caption":"imperdiet imperdiet. Nullam ut ligula vitae arcu vulputate dictum ut quis elit."
-      },
-      {"url":"./assets/images/design/list.jpg",
-        "title":"Aliquam erat volutpat",
-       "caption":"imperdiet imperdiet. Nullam ut ligula vitae arcu vulputate dictum ut quis elit."
       }
       ]; 
   }
@@ -188,8 +240,8 @@ export class PlaceComponent implements OnInit, AfterViewInit {
    private _getDayName(): string {
     return new Date().toLocaleString("en-us", { weekday: 'long' });
   }
-  
-  private _isOpen(todaysOpeningData: any): bool {
+
+  private _isOpen(todaysOpeningData: any): boolean {
     const curDate = new Date();
     const open = new Date();
     const close = new Date();
@@ -202,57 +254,20 @@ export class PlaceComponent implements OnInit, AfterViewInit {
     
     return curDate >= open && curDate <= close;
   }
+   
   
-  private _checkOpeningHours(data: any): string {
-    const openingdata = {
-  "author" : "James Iva",
-  "authorID" : "JBvLC3tCYCgFeIpKjGtSwBJ2scu1",
-  "geometry" : {
-    "latitude" : 29.4241219,
-    "longitude" : -98.49362819999999
-  },
-  "listDate" : 1482331706209,
-  "openHours" : {
-    "Friday" : {
-      "closeTime" : "17:00",
-      "openTime" : "09:00",
-      "status" : true
-    },
-    "Monday" : {
-      "closeTime" : "17:08",
-      "openTime" : "09:00",
-      "status" : true
-    },
-    "Saturday" : {
-      "closeTime" : "17:00",
-      "openTime" : "09:00",
-      "status" : true
-    },
-    "Sunday" : {
-      "closeTime" : "17:00",
-      "openTime" : "10:00",
-      "status" : true
-    },
-    "Thursday" : {
-      "closeTime" : "20:00",
-      "openTime" : "09:21",
-      "status" : false
-    },
-    "Tuesday" : {
-      "closeTime" : "17:00",
-      "openTime" : "04:00",
-      "status" : false
-    },
-    "Wednesday" : {
-      "closeTime" : "17:00",
-      "openTime" : "10:00",
-      "status" : false
-    }
-  },
-  "pPhone" : "no_phone",
-  "placeAdd" : "San Antonio, TX, USA",
-  "placeCat" : "Education"
-};
+
+   getPlaceData(){
+    return this._placesService.findPetById("295fc51f6b02d01d54a808938df736ed").subscribe(place => {
+         this.place = place;
+       });
+   }
+  
+     
+   private  _checkOpeningHours(data: any): string {
+   
+    
+
     const curDayName = this._getDayName();
     const todaysOpeningData = openingdata.openHours[curDayName];
     
@@ -260,65 +275,16 @@ export class PlaceComponent implements OnInit, AfterViewInit {
     if (!todaysOpeningData.status) return `IT'S ${curDayName.toUpperCase()} - WE ARE CLOSED TODAY!`;
     
     return `IT'S ${curDayName.toUpperCase()}, ${new Date().toLocaleString("en-US", { hour: '2-digit', minute: '2-digit' })} - ${this._isOpen(todaysOpeningData) ? 'WE ARE OPEN' : 'SORRY, WE ARE CLOSED'}!`;
+
   }
   
   private _refresh() {
-    const openingdata = {
-  "author" : "James Iva",
-  "authorID" : "JBvLC3tCYCgFeIpKjGtSwBJ2scu1",
-  "geometry" : {
-    "latitude" : 29.4241219,
-    "longitude" : -98.49362819999999
-  },
-  "listDate" : 1482331706209,
-  "openHours" : {
-    "Friday" : {
-      "closeTime" : "17:00",
-      "openTime" : "09:00",
-      "status" : true
-    },
-    "Monday" : {
-      "closeTime" : "17:08",
-      "openTime" : "09:00",
-      "status" : true
-    },
-    "Saturday" : {
-      "closeTime" : "17:00",
-      "openTime" : "09:00",
-      "status" : true
-    },
-    "Sunday" : {
-      "closeTime" : "17:00",
-      "openTime" : "10:00",
-      "status" : true
-    },
-    "Thursday" : {
-      "closeTime" : "20:00",
-      "openTime" : "09:21",
-      "status" : false
-    },
-    "Tuesday" : {
-      "closeTime" : "17:00",
-      "openTime" : "04:00",
-      "status" : false
-    },
-    "Wednesday" : {
-      "closeTime" : "17:00",
-      "openTime" : "10:00",
-      "status" : false
-    }
-  },
-  "pPhone" : "no_phone",
-  "placeAdd" : "San Antonio, TX, USA",
-  "placeCat" : "Education"
-};
     this.opening = this._checkOpeningHours(openingdata.openHours[this._getDayName()]);
-    console.log(this.opening);
-    
+
     setTimeout(() => this._refresh(), 60 * 1000);
   }
 
-
+  
    ngOnDestroy() {
       // Clean sub to avoid memory leak
     this.sub.unsubscribe();

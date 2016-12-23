@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as firebase from 'firebase';
+import 'rxjs/add/operator/catch';
 import { AngularFire, AuthProviders, AuthMethods, FirebaseObjectObservable, FirebaseListObservable } from 'angularfire2';
 
 
@@ -11,6 +12,7 @@ placesList: FirebaseListObservable<any[]>;
   constructor(private af: AngularFire) {
      this.placesAll = af.database.object('goaf-list-places', { preserveSnapshot: true });
      this.placesList = af.database.list('goaf-list-places');
+     console.log(this.placesAll);
    }
 
 	listPlaces(name, cat, add, lat, lng, placeID, uid, username ) {
